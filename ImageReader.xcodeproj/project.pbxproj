@@ -1,0 +1,413 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 52;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		DB34AE98246AE75A00C9D3CF /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB34AE97246AE75A00C9D3CF /* AppDelegate.swift */; };
+		DB34AE9A246AE75A00C9D3CF /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB34AE99246AE75A00C9D3CF /* ContentView.swift */; };
+		DB34AE9C246AE75D00C9D3CF /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DB34AE9B246AE75D00C9D3CF /* Assets.xcassets */; };
+		DB34AE9F246AE75D00C9D3CF /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DB34AE9E246AE75D00C9D3CF /* Preview Assets.xcassets */; };
+		DB34AEA2246AE75D00C9D3CF /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DB34AEA0246AE75D00C9D3CF /* Main.storyboard */; };
+		DB34AEB5246AF5A400C9D3CF /* CommonOSLogDynamic in Frameworks */ = {isa = PBXBuildFile; productRef = DB34AEB4246AF5A400C9D3CF /* CommonOSLogDynamic */; };
+		DB34AEB6246AF5A400C9D3CF /* CommonOSLogDynamic in Embed Frameworks */ = {isa = PBXBuildFile; productRef = DB34AEB4246AF5A400C9D3CF /* CommonOSLogDynamic */; settings = {ATTRIBUTES = (CodeSignOnCopy, ); }; };
+		DB34AEB9246AF9FE00C9D3CF /* ImageDropDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB34AEB8246AF9FE00C9D3CF /* ImageDropDelegate.swift */; };
+		DB34AEBB246B0B7B00C9D3CF /* UtilityView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB34AEBA246B0B7B00C9D3CF /* UtilityView.swift */; };
+		DB34AEDC246E0D9900C9D3CF /* Store.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB34AEDB246E0D9900C9D3CF /* Store.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		DB34AEB7246AF5A400C9D3CF /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				DB34AEB6246AF5A400C9D3CF /* CommonOSLogDynamic in Embed Frameworks */,
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
+/* Begin PBXFileReference section */
+		DB34AE94246AE75A00C9D3CF /* ImageReader.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ImageReader.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		DB34AE97246AE75A00C9D3CF /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		DB34AE99246AE75A00C9D3CF /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
+		DB34AE9B246AE75D00C9D3CF /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		DB34AE9E246AE75D00C9D3CF /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		DB34AEA1246AE75D00C9D3CF /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		DB34AEA3246AE75D00C9D3CF /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		DB34AEA4246AE75D00C9D3CF /* ImageReader.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = ImageReader.entitlements; sourceTree = "<group>"; };
+		DB34AEB8246AF9FE00C9D3CF /* ImageDropDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageDropDelegate.swift; sourceTree = "<group>"; };
+		DB34AEBA246B0B7B00C9D3CF /* UtilityView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UtilityView.swift; sourceTree = "<group>"; };
+		DB34AEDB246E0D9900C9D3CF /* Store.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Store.swift; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		DB34AE91246AE75A00C9D3CF /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				DB34AEB5246AF5A400C9D3CF /* CommonOSLogDynamic in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		DB34AE8B246AE75A00C9D3CF = {
+			isa = PBXGroup;
+			children = (
+				DB34AE96246AE75A00C9D3CF /* ImageReader */,
+				DB34AE95246AE75A00C9D3CF /* Products */,
+				DB34AEB3246AF5A400C9D3CF /* Frameworks */,
+			);
+			sourceTree = "<group>";
+		};
+		DB34AE95246AE75A00C9D3CF /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				DB34AE94246AE75A00C9D3CF /* ImageReader.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		DB34AE96246AE75A00C9D3CF /* ImageReader */ = {
+			isa = PBXGroup;
+			children = (
+				DB34AEDB246E0D9900C9D3CF /* Store.swift */,
+				DB34AEB8246AF9FE00C9D3CF /* ImageDropDelegate.swift */,
+				DB34AE97246AE75A00C9D3CF /* AppDelegate.swift */,
+				DB34AE99246AE75A00C9D3CF /* ContentView.swift */,
+				DB34AEBA246B0B7B00C9D3CF /* UtilityView.swift */,
+				DB34AE9B246AE75D00C9D3CF /* Assets.xcassets */,
+				DB34AEA0246AE75D00C9D3CF /* Main.storyboard */,
+				DB34AEA3246AE75D00C9D3CF /* Info.plist */,
+				DB34AEA4246AE75D00C9D3CF /* ImageReader.entitlements */,
+				DB34AE9D246AE75D00C9D3CF /* Preview Content */,
+			);
+			path = ImageReader;
+			sourceTree = "<group>";
+		};
+		DB34AE9D246AE75D00C9D3CF /* Preview Content */ = {
+			isa = PBXGroup;
+			children = (
+				DB34AE9E246AE75D00C9D3CF /* Preview Assets.xcassets */,
+			);
+			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		DB34AEB3246AF5A400C9D3CF /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		DB34AE93246AE75A00C9D3CF /* ImageReader */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = DB34AEA7246AE75D00C9D3CF /* Build configuration list for PBXNativeTarget "ImageReader" */;
+			buildPhases = (
+				DB34AE90246AE75A00C9D3CF /* Sources */,
+				DB34AE91246AE75A00C9D3CF /* Frameworks */,
+				DB34AE92246AE75A00C9D3CF /* Resources */,
+				DB34AEB7246AF5A400C9D3CF /* Embed Frameworks */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = ImageReader;
+			packageProductDependencies = (
+				DB34AEB4246AF5A400C9D3CF /* CommonOSLogDynamic */,
+			);
+			productName = ImageReader;
+			productReference = DB34AE94246AE75A00C9D3CF /* ImageReader.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		DB34AE8C246AE75A00C9D3CF /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 1140;
+				LastUpgradeCheck = 1140;
+				ORGANIZATIONNAME = MainasuK;
+				TargetAttributes = {
+					DB34AE93246AE75A00C9D3CF = {
+						CreatedOnToolsVersion = 11.4.1;
+					};
+				};
+			};
+			buildConfigurationList = DB34AE8F246AE75A00C9D3CF /* Build configuration list for PBXProject "ImageReader" */;
+			compatibilityVersion = "Xcode 9.3";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = DB34AE8B246AE75A00C9D3CF;
+			packageReferences = (
+				DB34AEAA246AF18500C9D3CF /* XCRemoteSwiftPackageReference "CommonOSLog" */,
+			);
+			productRefGroup = DB34AE95246AE75A00C9D3CF /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				DB34AE93246AE75A00C9D3CF /* ImageReader */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		DB34AE92246AE75A00C9D3CF /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				DB34AEA2246AE75D00C9D3CF /* Main.storyboard in Resources */,
+				DB34AE9F246AE75D00C9D3CF /* Preview Assets.xcassets in Resources */,
+				DB34AE9C246AE75D00C9D3CF /* Assets.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		DB34AE90246AE75A00C9D3CF /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				DB34AEDC246E0D9900C9D3CF /* Store.swift in Sources */,
+				DB34AE9A246AE75A00C9D3CF /* ContentView.swift in Sources */,
+				DB34AE98246AE75A00C9D3CF /* AppDelegate.swift in Sources */,
+				DB34AEB9246AF9FE00C9D3CF /* ImageDropDelegate.swift in Sources */,
+				DB34AEBB246B0B7B00C9D3CF /* UtilityView.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXVariantGroup section */
+		DB34AEA0246AE75D00C9D3CF /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				DB34AEA1246AE75D00C9D3CF /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		DB34AEA5246AE75D00C9D3CF /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 10.15;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = macosx;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		DB34AEA6246AE75D00C9D3CF /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 10.15;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SDKROOT = macosx;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+			};
+			name = Release;
+		};
+		DB34AEA8246AE75D00C9D3CF /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = ImageReader/ImageReader.entitlements;
+				CODE_SIGN_STYLE = Automatic;
+				COMBINE_HIDPI_IMAGES = YES;
+				DEVELOPMENT_ASSET_PATHS = "\"ImageReader/Preview Content\"";
+				DEVELOPMENT_TEAM = A8K92XFF77;
+				ENABLE_HARDENED_RUNTIME = YES;
+				ENABLE_PREVIEWS = YES;
+				INFOPLIST_FILE = ImageReader/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+				);
+				MACOSX_DEPLOYMENT_TARGET = 10.15;
+				PRODUCT_BUNDLE_IDENTIFIER = com.mainasuk.ImageReader;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+			};
+			name = Debug;
+		};
+		DB34AEA9246AE75D00C9D3CF /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = ImageReader/ImageReader.entitlements;
+				CODE_SIGN_STYLE = Automatic;
+				COMBINE_HIDPI_IMAGES = YES;
+				DEVELOPMENT_ASSET_PATHS = "\"ImageReader/Preview Content\"";
+				DEVELOPMENT_TEAM = A8K92XFF77;
+				ENABLE_HARDENED_RUNTIME = YES;
+				ENABLE_PREVIEWS = YES;
+				INFOPLIST_FILE = ImageReader/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+				);
+				MACOSX_DEPLOYMENT_TARGET = 10.15;
+				PRODUCT_BUNDLE_IDENTIFIER = com.mainasuk.ImageReader;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		DB34AE8F246AE75A00C9D3CF /* Build configuration list for PBXProject "ImageReader" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				DB34AEA5246AE75D00C9D3CF /* Debug */,
+				DB34AEA6246AE75D00C9D3CF /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		DB34AEA7246AE75D00C9D3CF /* Build configuration list for PBXNativeTarget "ImageReader" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				DB34AEA8246AE75D00C9D3CF /* Debug */,
+				DB34AEA9246AE75D00C9D3CF /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		DB34AEAA246AF18500C9D3CF /* XCRemoteSwiftPackageReference "CommonOSLog" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/MainasuK/CommonOSLog.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 0.1.0;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		DB34AEB4246AF5A400C9D3CF /* CommonOSLogDynamic */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = DB34AEAA246AF18500C9D3CF /* XCRemoteSwiftPackageReference "CommonOSLog" */;
+			productName = CommonOSLogDynamic;
+		};
+/* End XCSwiftPackageProductDependency section */
+	};
+	rootObject = DB34AE8C246AE75A00C9D3CF /* Project object */;
+}
