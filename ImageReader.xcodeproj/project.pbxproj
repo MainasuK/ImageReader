@@ -17,6 +17,8 @@
 		DB34AEB9246AF9FE00C9D3CF /* ImageDropDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB34AEB8246AF9FE00C9D3CF /* ImageDropDelegate.swift */; };
 		DB34AEBB246B0B7B00C9D3CF /* UtilityView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB34AEBA246B0B7B00C9D3CF /* UtilityView.swift */; };
 		DB34AEDC246E0D9900C9D3CF /* Store.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB34AEDB246E0D9900C9D3CF /* Store.swift */; };
+		DB710F75246F5E750061EF2C /* VisionService.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB710F74246F5E750061EF2C /* VisionService.swift */; };
+		DB710F7F246F614A0061EF2C /* ImageOverlayView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB710F7E246F614A0061EF2C /* ImageOverlayView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -45,6 +47,8 @@
 		DB34AEB8246AF9FE00C9D3CF /* ImageDropDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageDropDelegate.swift; sourceTree = "<group>"; };
 		DB34AEBA246B0B7B00C9D3CF /* UtilityView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UtilityView.swift; sourceTree = "<group>"; };
 		DB34AEDB246E0D9900C9D3CF /* Store.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Store.swift; sourceTree = "<group>"; };
+		DB710F74246F5E750061EF2C /* VisionService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VisionService.swift; sourceTree = "<group>"; };
+		DB710F7E246F614A0061EF2C /* ImageOverlayView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageOverlayView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -79,16 +83,13 @@
 		DB34AE96246AE75A00C9D3CF /* ImageReader */ = {
 			isa = PBXGroup;
 			children = (
-				DB34AEDB246E0D9900C9D3CF /* Store.swift */,
-				DB34AEB8246AF9FE00C9D3CF /* ImageDropDelegate.swift */,
-				DB34AE97246AE75A00C9D3CF /* AppDelegate.swift */,
-				DB34AE99246AE75A00C9D3CF /* ContentView.swift */,
-				DB34AEBA246B0B7B00C9D3CF /* UtilityView.swift */,
-				DB34AE9B246AE75D00C9D3CF /* Assets.xcassets */,
-				DB34AEA0246AE75D00C9D3CF /* Main.storyboard */,
 				DB34AEA3246AE75D00C9D3CF /* Info.plist */,
 				DB34AEA4246AE75D00C9D3CF /* ImageReader.entitlements */,
+				DB710F76246F5E780061EF2C /* Service */,
+				DB710F7A246F611A0061EF2C /* Scene */,
+				DB710F7D246F61370061EF2C /* Model */,
 				DB34AE9D246AE75D00C9D3CF /* Preview Content */,
+				DB710F77246F5EBE0061EF2C /* Supporting Files */,
 			);
 			path = ImageReader;
 			sourceTree = "<group>";
@@ -106,6 +107,59 @@
 			children = (
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		DB710F76246F5E780061EF2C /* Service */ = {
+			isa = PBXGroup;
+			children = (
+				DB710F74246F5E750061EF2C /* VisionService.swift */,
+			);
+			path = Service;
+			sourceTree = "<group>";
+		};
+		DB710F77246F5EBE0061EF2C /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				DB34AE97246AE75A00C9D3CF /* AppDelegate.swift */,
+				DB34AE9B246AE75D00C9D3CF /* Assets.xcassets */,
+				DB34AEA0246AE75D00C9D3CF /* Main.storyboard */,
+			);
+			path = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		DB710F7A246F611A0061EF2C /* Scene */ = {
+			isa = PBXGroup;
+			children = (
+				DB710F7B246F61230061EF2C /* Content */,
+				DB710F7C246F612D0061EF2C /* Utility */,
+			);
+			path = Scene;
+			sourceTree = "<group>";
+		};
+		DB710F7B246F61230061EF2C /* Content */ = {
+			isa = PBXGroup;
+			children = (
+				DB34AE99246AE75A00C9D3CF /* ContentView.swift */,
+				DB710F7E246F614A0061EF2C /* ImageOverlayView.swift */,
+				DB34AEB8246AF9FE00C9D3CF /* ImageDropDelegate.swift */,
+			);
+			path = Content;
+			sourceTree = "<group>";
+		};
+		DB710F7C246F612D0061EF2C /* Utility */ = {
+			isa = PBXGroup;
+			children = (
+				DB34AEBA246B0B7B00C9D3CF /* UtilityView.swift */,
+			);
+			path = Utility;
+			sourceTree = "<group>";
+		};
+		DB710F7D246F61370061EF2C /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				DB34AEDB246E0D9900C9D3CF /* Store.swift */,
+			);
+			path = Model;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -187,6 +241,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				DB34AEDC246E0D9900C9D3CF /* Store.swift in Sources */,
+				DB710F7F246F614A0061EF2C /* ImageOverlayView.swift in Sources */,
+				DB710F75246F5E750061EF2C /* VisionService.swift in Sources */,
 				DB34AE9A246AE75A00C9D3CF /* ContentView.swift in Sources */,
 				DB34AE98246AE75A00C9D3CF /* AppDelegate.swift in Sources */,
 				DB34AEB9246AF9FE00C9D3CF /* ImageDropDelegate.swift in Sources */,
@@ -367,6 +423,89 @@
 			};
 			name = Release;
 		};
+		DB710F78246F5F950061EF2C /* Preview */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 10.15;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = macosx;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "DEBUG PREVIEW";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Preview;
+		};
+		DB710F79246F5F950061EF2C /* Preview */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = ImageReader/ImageReader.entitlements;
+				CODE_SIGN_STYLE = Automatic;
+				COMBINE_HIDPI_IMAGES = YES;
+				DEVELOPMENT_ASSET_PATHS = "\"ImageReader/Preview Content\"";
+				DEVELOPMENT_TEAM = A8K92XFF77;
+				ENABLE_HARDENED_RUNTIME = YES;
+				ENABLE_PREVIEWS = YES;
+				INFOPLIST_FILE = ImageReader/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+				);
+				MACOSX_DEPLOYMENT_TARGET = 10.15;
+				PRODUCT_BUNDLE_IDENTIFIER = com.mainasuk.ImageReader;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+			};
+			name = Preview;
+		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -374,6 +513,7 @@
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				DB34AEA5246AE75D00C9D3CF /* Debug */,
+				DB710F78246F5F950061EF2C /* Preview */,
 				DB34AEA6246AE75D00C9D3CF /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
@@ -383,6 +523,7 @@
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				DB34AEA8246AE75D00C9D3CF /* Debug */,
+				DB710F79246F5F950061EF2C /* Preview */,
 				DB34AEA9246AE75D00C9D3CF /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;

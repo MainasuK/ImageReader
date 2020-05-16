@@ -13,7 +13,8 @@ import SwiftUI
 class AppDelegate: NSObject, NSApplicationDelegate {
 
     var window: NSWindow!
-
+    
+    let store = Store()
 
     func applicationDidFinishLaunching(_ aNotification: Notification) {
         // Create the SwiftUI view that provides the window contents.
@@ -26,14 +27,20 @@ class AppDelegate: NSObject, NSApplicationDelegate {
             backing: .buffered, defer: false)
         window.center()
         window.setFrameAutosaveName("Main Window")
-        window.contentView = NSHostingView(rootView: contentView.environmentObject(Store()))
+        window.contentView = NSHostingView(rootView: contentView.environmentObject(store))
         window.makeKeyAndOrderFront(nil)
     }
-
-    func applicationWillTerminate(_ aNotification: Notification) {
-        // Insert code here to tear down your application
+    
+    func applicationDidBecomeActive(_ notification: Notification) {
+        #if PREVIEW
+        guard store.content.image.size == .zero else { return }
+        store.content.image = NSImage(named: "test-snapshot")!
+        #endif
     }
-
+    
+    func applicationWillTerminate(_ aNotification: Notification) {
+        
+    }
 
 }
 
