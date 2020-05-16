@@ -133,8 +133,12 @@ extension UtilityView {
                     ForEach(Store.Utility.SaliencyType.allCases, id: \.self) { saliencyType in
                         Text(saliencyType.text)
                             .tag(saliencyType)
+                            .fixedSize()
                     }
                 }
+                .overlay(NSPickerConfigurator {
+                    $0.segmentDistribution = .fillEqually
+                })
                 .pickerStyle(SegmentedPickerStyle())
                 
             }
@@ -220,6 +224,76 @@ struct GridRow<Content>: View where Content: View {
                 .font(.gridSubtitle)
                 .frame(width: UtilityView.grideWidth, alignment: .trailing)
             content
+        }
+    }
+    
+}
+
+
+protocol PickerOverlayViewDelegate {
+    func viewDidMoveToSuperview(_ view: PickerOverlayView)
+}
+
+class PickerOverlayView: NSView {
+    
+    var delegate: PickerOverlayViewDelegate?
+    
+    override func viewDidMoveToSuperview() {
+        super.viewDidMoveToSuperview()
+        delegate?.viewDidMoveToSuperview(self)
+    }
+    
+}
+
+struct NSPickerConfigurator: NSViewRepresentable {
+    
+    var configure: (NSSegmentedControl) -> Void
+    
+    func makeCoordinator() -> Coordinator {
+        Coordinator(self)
+    }
+    
+    func makeNSView(context: Context) -> NSView {
+        let view = PickerOverlayView()
+        view.delegate = context.coordinator
+        return view
+    }
+    
+    func updateNSView(_ nsView: NSView, context: Context) {
+    
+    }
+    
+    class Coordinator: PickerOverlayViewDelegate {
+        let configurator: NSPickerConfigurator
+        
+        init(_ configurator: NSPickerConfigurator) {
+            self.configurator = configurator
+        }
+        
+        func viewDidMoveToSuperview(_ view: PickerOverlayView) {
+            DispatchQueue.main.async {
+                guard let holder = view.superview?.superview else {
+                    return
+                }
+                
+                for index in holder.subviews.indices {
+                    let overlayViewParentViewIndex = index + 1
+                    guard overlayViewParentViewIndex < holder.subviews.count else {
+                        return
+                    }
+                    
+                    guard holder.subviews[overlayViewParentViewIndex].subviews.first === view else {
+                        continue
+                    }
+                    
+                    guard let segmentedControl = holder.subviews[index].subviews.first as? NSSegmentedControl else {
+                        assertionFailure("the overlay should slibling's subview of overlayed view")
+                        return
+                    }
+                    
+                    self.configurator.configure(segmentedControl)
+                }
+            }
         }
     }
     
