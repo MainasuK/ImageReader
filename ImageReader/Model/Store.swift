@@ -26,13 +26,27 @@ extension Store {
         
         // output
         let imagePublisher = PassthroughSubject<NSImage, Never>()
+        
+        // relay
         var textObservations: [VNRecognizedTextObservation] = []
+        var attentionBasedSaliencyImageObservations: [VNSaliencyImageObservation] = []
+        var objectnessBasedSaliencyImageObservations: [VNSaliencyImageObservation] = []
     }
 }
 
 extension Store {
     struct Utility {
+        // MARK: - Read Type Picker
+        
         var readerType: ReaderType = .vision
+        
+        // MARK: - Vision
+        
+        // Saliency
+        var saliencyType: SaliencyType = .none
+        var saliencyMaskEnabled = true
+        var saliencyMaskAlpha: CGFloat = 0.8
+        var sailencyBoundingBoxEnabled = true
         
         // Text
         var recognizeTextRequestOptions = RecognizeTextRequestOptions() {
@@ -49,10 +63,22 @@ extension Store.Utility {
         
         var text: String {
             switch self {
-            case .vision:
-                return "Vision"
-            case .opencv:
-                return "OpenCV"
+            case .vision:     return "Vision"
+            case .opencv:     return "OpenCV"
+            }
+        }
+    }
+    
+    enum SaliencyType: CaseIterable, Hashable {
+        case none
+        case attention
+        case objectness
+        
+        var text: String {
+            switch self {
+            case .none:       return "None"
+            case .attention:  return "Attention"
+            case .objectness: return "Objectness"
             }
         }
     }

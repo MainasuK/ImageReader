@@ -20,6 +20,8 @@ struct ListPopoverBoundsPreferenceKey: PreferenceKey {
 
 struct UtilityView: View {
     
+    static let grideWidth: CGFloat = 80
+    
     @EnvironmentObject var store: Store
     
     @State var selectTextObservation: VNRecognizedTextObservation?
@@ -44,26 +46,17 @@ struct UtilityView: View {
                     openCVUtilityView
                 }
             }
-        }   // end VStack
+        } // end VStack
+        .font(.gridRegular)
     }
 }
 
 extension UtilityView {
     var visionUtilityView: some View {
         VStack(alignment: .leading) {
-            Text("Text Recognition")
-                .font(.caption)
-                .padding(.leading)
-            HStack {
-                Toggle("Enabled", isOn: $store.utility.recognizeTextRequestOptions.enabled)
-                Toggle("CPU Only", isOn: $store.utility.recognizeTextRequestOptions.usesCPUOnly)
-                Picker("Level", selection: $store.utility.recognizeTextRequestOptions.textRecognitionLevel) {
-                    ForEach(VNRequestTextRecognitionLevel.allCases, id: \.self) { level in
-                        Text(level.text)
-                    }
-                }
-            }
-            .padding([.leading, .trailing])
+            visionSaliencyUtilityView
+            Divider()
+            visionTextRecognitionUtilityView
             Divider()
             List(store.content.textObservations, id: \.self) { observation  in
                 VStack(alignment: .leading) {
@@ -125,6 +118,63 @@ extension UtilityView {
         }   // end VStack
     }
     
+    static let saliencyMaskAlphaNumberFormatter: NumberFormatter = {
+        let formatter = NumberFormatter()
+        formatter.minimumFractionDigits = 1
+        return formatter
+    }()
+    
+    var visionSaliencyUtilityView: some View {
+        VStack(alignment: .leading) {
+            Text("Saliency")
+                .font(.caption)
+            GridRow(title: "Kind") {
+                Picker(selection: $store.utility.saliencyType, label: EmptyView()) {
+                    ForEach(Store.Utility.SaliencyType.allCases, id: \.self) { saliencyType in
+                        Text(saliencyType.text)
+                            .tag(saliencyType)
+                    }
+                }
+                .pickerStyle(SegmentedPickerStyle())
+                
+            }
+            GridRow(title: "Drawing") {
+                VStack(alignment: .leading) {
+                    Toggle("Mask", isOn: $store.utility.saliencyMaskEnabled)
+                    Toggle("Bounding Box", isOn: $store.utility.sailencyBoundingBoxEnabled)
+                }
+            }
+            GridRow(title: "Alpha") {
+                TextField("Alpha", value: $store.utility.saliencyMaskAlpha, formatter: UtilityView.saliencyMaskAlphaNumberFormatter)
+            }
+        }
+        .padding([.leading, .trailing])
+    }
+    
+    var visionTextRecognitionUtilityView: some View {
+        VStack(alignment: .leading) {
+            Text("Text Recognition")
+                .font(.caption)
+            GridRow(title: "") {
+                Toggle("Enabled", isOn: $store.utility.recognizeTextRequestOptions.enabled)
+            }
+            GridRow(title: "Options") {
+                Toggle("CPU Only", isOn: $store.utility.recognizeTextRequestOptions.usesCPUOnly)
+            }
+            GridRow(title: "Level") {
+                Picker(selection: $store.utility.recognizeTextRequestOptions.textRecognitionLevel, label: EmptyView()) {
+                    ForEach(VNRequestTextRecognitionLevel.allCases, id: \.self) { level in
+                        Text(level.text)
+                    }
+                }
+            }
+        }
+        .padding([.leading, .trailing])
+    }
+
+}
+
+extension UtilityView {
     var openCVUtilityView: some View {
         VStack {
             Spacer()
@@ -151,4 +201,26 @@ struct UtilityView_Previews: PreviewProvider {
             }
         }
     }
+    
+}
+
+struct GridRow<Content>: View where Content: View {
+    
+    let title: String
+    var content: Content
+    
+    init(title: String, @ViewBuilder content: () -> Content) {
+        self.title = title
+        self.content = content()
+    }
+
+    var body: some View {
+        HStack(alignment: .firstTextBaseline) {
+            Text(title)
+                .font(.gridSubtitle)
+                .frame(width: UtilityView.grideWidth, alignment: .trailing)
+            content
+        }
+    }
+    
 }

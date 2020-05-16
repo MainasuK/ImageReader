@@ -36,14 +36,20 @@ struct ContentView: View {
             // subscribe image
             self.visionService.imageSubscription = self.store.content.imagePublisher
                 .assign(to: \.value, on: self.visionService.image)
-            // bind textObservations output to store
-            self.visionService.textObservationsSubscription = self.visionService.textObservations
-                .assign(to: \.content.textObservations, on: self.store)
             // subscribe recognizeTextRequestOptions.textRecognitionLevel
             self.visionService.recognizeTextRequestOptionsSubscription = self.store.utility.recognizeTextRequestOptionsPublisher
                 .sink(receiveValue: { options in
                     self.visionService.recognizeTextRequestOptions.value = options
                 })
+            // bind textObservations output to store
+            self.visionService.textObservationsSubscription = self.visionService.textObservations
+                .assign(to: \.content.textObservations, on: self.store)
+            // bind attentionBasedSaliencyImageObservations to store
+            self.visionService.attentionBasedSaliencyImageObservationSubscription = self.visionService.attentionBasedSaliencyImageObservation
+                .assign(to: \.content.attentionBasedSaliencyImageObservations, on: self.store)
+            // bind objectnessBasedSaliencyImageObservations to store
+            self.visionService.objectnessBasedSaliencyImageObservationSubscription = self.visionService.objectnessBasedSaliencyImageObservation
+                .assign(to: \.content.objectnessBasedSaliencyImageObservations, on: self.store)
         }
     }
 }

@@ -48,16 +48,33 @@ struct GenerateImageFeaturePrintRequestOptions: RequestOptions {
     
 }
 
+struct ImageBasedRequestOptions: RequestOptions {
+    typealias Request = VNImageBasedRequest
+    
+    var enabled = true
+    var usesCPUOnly = false
+    
+    func update(request: VNImageBasedRequest) {
+        request.usesCPUOnly = usesCPUOnly
+    }
+    
+}
+
 final class VisionService: ObservableObject {
     
     var disposeBag = Set<AnyCancellable>()
     
     // Recognize Text
-    // let textRecognitionLevel = CurrentValueSubject<, Never>(.accurate)
     private(set) lazy var recognizeTextRequest: VNRecognizeTextRequest = VNRecognizeTextRequest(completionHandler: self.recognizeTextRequestCompletionHandler)
     
     // Image Feature Print
     private(set) lazy var generateImageFeaturePrintRequest = VNGenerateImageFeaturePrintRequest(completionHandler: self.featurePrintRequestCompletionHandler)
+    
+    // Attention Based Saliency
+    private(set) lazy var generateAttentionBasedSaliencyImageRequest = VNGenerateAttentionBasedSaliencyImageRequest(completionHandler: self.generateAttentionBasedSaliencyImageRequestCompletionHandler)
+    
+    // Objectness Based Saliency
+    private(set) lazy var generateObjectnessBasedSaliencyImageRequest = VNGenerateObjectnessBasedSaliencyImageRequest(completionHandler: self.generateObjectnessBasedSaliencyImageRequestCompletionHandler)
 
     // input
     let image = CurrentValueSubject<NSImage, Never>(NSImage())
@@ -69,11 +86,19 @@ final class VisionService: ObservableObject {
     var recognizeTextRequestOptionsSubscription: AnyCancellable?
 
     let generateImageFeaturePrintRequestOptions = CurrentValueSubject<GenerateImageFeaturePrintRequestOptions, Never>(GenerateImageFeaturePrintRequestOptions())
+    let generateAttentionBasedSaliencyImageRequestOptions = CurrentValueSubject<ImageBasedRequestOptions, Never>(ImageBasedRequestOptions())
+    let generateObjectnessBasedSaliencyImageRequestOptions = CurrentValueSubject<ImageBasedRequestOptions, Never>(ImageBasedRequestOptions())
 
     // output
     private let imageRequestHandler = PassthroughSubject<VNImageRequestHandler, Never>()
     let textObservations = PassthroughSubject<[VNRecognizedTextObservation], Never>()
     var textObservationsSubscription: AnyCancellable?
+    
+    let attentionBasedSaliencyImageObservation = PassthroughSubject<[VNSaliencyImageObservation], Never>()
+    var attentionBasedSaliencyImageObservationSubscription: AnyCancellable?
+    
+    let objectnessBasedSaliencyImageObservation = PassthroughSubject<[VNSaliencyImageObservation], Never>()
+    var objectnessBasedSaliencyImageObservationSubscription: AnyCancellable?
     
     init() {
         let imagePublisher = image.share()
@@ -135,9 +160,8 @@ final class VisionService: ObservableObject {
                 guard let `self` = self else { return }
                 
                 let request = self.generateImageFeaturePrintRequest
-
-                // cancel previous request
                 request.cancel()
+                options.update(request: request)
                 
                 // perform new request
                 DispatchQueue.global(qos: .userInitiated).async {
@@ -145,6 +169,50 @@ final class VisionService: ObservableObject {
                         try requestHandler.perform([request])
                     } catch {
                         os_log(.info, log: .debug, "%{public}s[%{public}ld], %{public}s: feature print perform get error: %s", ((#file as NSString).lastPathComponent), #line, #function, error.localizedDescription)
+                    }
+                }
+            }
+            .store(in: &disposeBag)
+        
+        // Attention Based Saliency
+        Publishers
+            .CombineLatest(imageRequestHandler.eraseToAnyPublisher(), generateAttentionBasedSaliencyImageRequestOptions.eraseToAnyPublisher())
+            .receive(on: DispatchQueue.main)
+            .sink { [weak self] requestHandler, options in
+                guard let `self` = self else { return }
+                
+                let request = self.generateAttentionBasedSaliencyImageRequest
+                request.cancel()
+                options.update(request: request)
+                
+                // perform new request
+                DispatchQueue.global(qos: .userInitiated).async {
+                    do {
+                        try requestHandler.perform([request])
+                    } catch {
+                        os_log(.info, log: .debug, "%{public}s[%{public}ld], %{public}s: attention based saliency perform get error: %s", ((#file as NSString).lastPathComponent), #line, #function, error.localizedDescription)
+                    }
+                }
+            }
+            .store(in: &disposeBag)
+
+        // Objectness Based Saliency
+        Publishers
+            .CombineLatest(imageRequestHandler.eraseToAnyPublisher(), generateObjectnessBasedSaliencyImageRequestOptions.eraseToAnyPublisher())
+            .receive(on: DispatchQueue.main)
+            .sink { [weak self] requestHandler, options in
+                guard let `self` = self else { return }
+                
+                let request = self.generateObjectnessBasedSaliencyImageRequest
+                request.cancel()
+                options.update(request: request)
+                
+                // perform new request
+                DispatchQueue.global(qos: .userInitiated).async {
+                    do {
+                        try requestHandler.perform([request])
+                    } catch {
+                        os_log(.info, log: .debug, "%{public}s[%{public}ld], %{public}s: objectness based saliency perform get error: %s", ((#file as NSString).lastPathComponent), #line, #function, error.localizedDescription)
                     }
                 }
             }
@@ -162,7 +230,7 @@ extension VisionService {
             guard let request = request as? VNRecognizeTextRequest else { return }
             guard let result = request.results as? [VNRecognizedTextObservation] else { return }
             
-            print(result.first.debugDescription)
+            // print(result.first.debugDescription)
             self.textObservations.send(result)
         }
     }
@@ -175,7 +243,32 @@ extension VisionService {
             guard let result = request.results as? [VNFeaturePrintObservation] else { return }
             
             print(result.first.debugDescription)
-            //            self.textObservations.send(result)
+        }
+    }
+    
+    func generateAttentionBasedSaliencyImageRequestCompletionHandler(request: VNRequest, error: Error?) {
+        DispatchQueue.main.async { [unowned self] in
+            os_log(.info, log: .logic, "%{public}s[%{public}ld], %{public}s: generateAttentionBasedSaliencyImageRequest callback with request: %s, error: %s", ((#file as NSString).lastPathComponent), #line, #function, request.debugDescription, error.debugDescription)
+            
+            guard let request = request as? VNGenerateAttentionBasedSaliencyImageRequest else { return }
+            guard let results = request.results as? [VNSaliencyImageObservation] else {
+                return
+            }
+            
+            self.attentionBasedSaliencyImageObservation.send(results)
+        }
+    }
+    
+    func generateObjectnessBasedSaliencyImageRequestCompletionHandler(request: VNRequest, error: Error?) {
+        DispatchQueue.main.async { [unowned self] in
+            os_log(.info, log: .logic, "%{public}s[%{public}ld], %{public}s: generateObjectnessBasedSaliencyImageRequest callback with request: %s, error: %s", ((#file as NSString).lastPathComponent), #line, #function, request.debugDescription, error.debugDescription)
+            
+            guard let request = request as? VNGenerateObjectnessBasedSaliencyImageRequest else { return }
+            guard let results = request.results as? [VNSaliencyImageObservation] else {
+                return
+            }
+    
+            self.objectnessBasedSaliencyImageObservation.send(results)
         }
     }
     

@@ -19,6 +19,7 @@
 		DB34AEDC246E0D9900C9D3CF /* Store.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB34AEDB246E0D9900C9D3CF /* Store.swift */; };
 		DB710F75246F5E750061EF2C /* VisionService.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB710F74246F5E750061EF2C /* VisionService.swift */; };
 		DB710F7F246F614A0061EF2C /* ImageOverlayView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB710F7E246F614A0061EF2C /* ImageOverlayView.swift */; };
+		DB710F81246FCB1A0061EF2C /* Font.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB710F80246FCB1A0061EF2C /* Font.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -49,6 +50,7 @@
 		DB34AEDB246E0D9900C9D3CF /* Store.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Store.swift; sourceTree = "<group>"; };
 		DB710F74246F5E750061EF2C /* VisionService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VisionService.swift; sourceTree = "<group>"; };
 		DB710F7E246F614A0061EF2C /* ImageOverlayView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageOverlayView.swift; sourceTree = "<group>"; };
+		DB710F80246FCB1A0061EF2C /* Font.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Font.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -150,6 +152,7 @@
 			isa = PBXGroup;
 			children = (
 				DB34AEBA246B0B7B00C9D3CF /* UtilityView.swift */,
+				DB710F80246FCB1A0061EF2C /* Font.swift */,
 			);
 			path = Utility;
 			sourceTree = "<group>";
@@ -244,6 +247,7 @@
 				DB710F7F246F614A0061EF2C /* ImageOverlayView.swift in Sources */,
 				DB710F75246F5E750061EF2C /* VisionService.swift in Sources */,
 				DB34AE9A246AE75A00C9D3CF /* ContentView.swift in Sources */,
+				DB710F81246FCB1A0061EF2C /* Font.swift in Sources */,
 				DB34AE98246AE75A00C9D3CF /* AppDelegate.swift in Sources */,
 				DB34AEB9246AF9FE00C9D3CF /* ImageDropDelegate.swift in Sources */,
 				DB34AEBB246B0B7B00C9D3CF /* UtilityView.swift in Sources */,
