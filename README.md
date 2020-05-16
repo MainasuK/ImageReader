@@ -10,7 +10,9 @@ macOS App for demonstrate image analysis tool like Vision.framework.
 - [ ] Object Detecting
 - [ ] Face Detecting
 - [ ] Feature Print
-- [ ] Saliency
+- [x] Saliency
+  - [x] Attention Based
+  - [x] Objectness Based
 
 ### CoreImage.framework
 - [ ] Object Detecting
