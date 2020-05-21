@@ -19,15 +19,24 @@ Bash.debugEnabled = false
 
 class Bash {
     static var debugEnabled = false
+
+    static var commandCache: [String: String] = [:]
     
     @discardableResult
     func run(_ command: String, arguments: [String] = [], environment: [String: String]? = ProcessInfo.processInfo.environment, _line: Int = #line) throws -> String {
-        var command = try run(command: "/bin/bash" , arguments: ["-l", "-c", "which \(command)"], environment: environment)
-        command = command.trimmingCharacters(in: .whitespacesAndNewlines)
+        let _command: String
+        if let cache = Bash.commandCache[command] {
+            _command = cache
+        } else {
+            var theCommand = try run(command: "/bin/bash" , arguments: ["-l", "-c", "which \(command)"], environment: environment)
+            theCommand = theCommand.trimmingCharacters(in: .whitespacesAndNewlines)
+            _command = theCommand
+            Bash.commandCache[command] = theCommand
+        }
         let arguments = arguments.map { $0.trimmingCharacters(in: .whitespacesAndNewlines) }
-        let result = try run(command: command, arguments: arguments, environment: environment)
+        let result = try run(command: _command, arguments: arguments, environment: environment)
         if Bash.debugEnabled {
-            print("+\((#file as NSString).lastPathComponent):\(_line)> \(command) \(arguments.joined(separator: " "))")
+            print("+\((#file as NSString).lastPathComponent):\(_line)> \(_command) \(arguments.joined(separator: " "))")
             print(result)
         }
         return result
@@ -52,10 +61,19 @@ class Bash {
     }
 }
 
+
+// save reduplicate query time
+var otoolResultCache: [String: String] = [:]
 // otool -L <path>
 func extractDependenciesFromOtoolWithFlagL(path: String) throws -> [String] {
-    return try Bash()
-        .run("otool", arguments: ["-L", path])
+    let result: String
+    if let cache = otoolResultCache[path] {
+        result = cache
+    } else {
+        result = try Bash().run("otool", arguments: ["-L", path])
+        otoolResultCache[path] = result
+    }
+    return result
         .components(separatedBy: .newlines)
         .dropFirst()    // drop otool first prompt line
         .map { $0.trimmingCharacters(in: .whitespacesAndNewlines) } // trim space
