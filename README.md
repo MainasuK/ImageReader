@@ -22,7 +22,7 @@ macOS App for demonstrate image analysis tool like Vision.framework.
 - [ ] SURF Image Matching
 
 ### Tesseract
-- [ ] Text Recognization
+- [x] Text Recognization
 
 
 ## Usage
