@@ -39,7 +39,23 @@
 		DB710F75246F5E750061EF2C /* VisionService.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB710F74246F5E750061EF2C /* VisionService.swift */; };
 		DB710F7F246F614A0061EF2C /* ImageOverlayView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB710F7E246F614A0061EF2C /* ImageOverlayView.swift */; };
 		DB710F81246FCB1A0061EF2C /* Font.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB710F80246FCB1A0061EF2C /* Font.swift */; };
+		DBF25DCD2476D58C0008300C /* eng.traineddata in Resources */ = {isa = PBXBuildFile; fileRef = DBF25DC02476CE250008300C /* eng.traineddata */; };
+		DBF25DD32476D6310008300C /* Tessdata.bundle in CopyFiles */ = {isa = PBXBuildFile; fileRef = DBF25DC62476D5730008300C /* Tessdata.bundle */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		DBF25DD52476D6C10008300C /* Tessdata.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBF25DD42476D6C10008300C /* Tessdata.swift */; };
+		DBF25DD82476D7650008300C /* TesseractService.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB49111A2476BF3A004DAC55 /* TesseractService.swift */; };
+		DBF25DDA2476DC1D0008300C /* TesseractWordRecognizeResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBF25DD92476DC1D0008300C /* TesseractWordRecognizeResult.swift */; };
+		DBF25DDC2476E6600008300C /* chi_sim.traineddata in Resources */ = {isa = PBXBuildFile; fileRef = DBF25DDB2476E6600008300C /* chi_sim.traineddata */; };
 /* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		DBF25DCF2476D5CA0008300C /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = DB34AE8C246AE75A00C9D3CF /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = DBF25DC52476D5730008300C;
+			remoteInfo = Tessdata;
+		};
+/* End PBXContainerItemProxy section */
 
 /* Begin PBXCopyFilesBuildPhase section */
 		DB34AEB7246AF5A400C9D3CF /* Embed Frameworks */ = {
@@ -60,6 +76,16 @@
 				DB372F21247358C700E24890 /* liblept.5.dylib in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		DBF25DD22476D6220008300C /* CopyFiles */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 7;
+			files = (
+				DBF25DD32476D6310008300C /* Tessdata.bundle in CopyFiles */,
+			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXCopyFilesBuildPhase section */
@@ -85,10 +111,18 @@
 		DB49110F24757D5A004DAC55 /* libgif.7.2.0.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libgif.7.2.0.dylib; path = ../../../../usr/local/Cellar/giflib/5.2.1/lib/libgif.7.2.0.dylib; sourceTree = "<group>"; };
 		DB491114247593A1004DAC55 /* libwebp.7.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libwebp.7.dylib; path = ../../../../usr/local/Cellar/webp/1.1.0/lib/libwebp.7.dylib; sourceTree = "<group>"; };
 		DB491117247593C0004DAC55 /* libopenjp2.2.3.1.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libopenjp2.2.3.1.dylib; path = ../../../../usr/local/Cellar/openjpeg/2.3.1/lib/libopenjp2.2.3.1.dylib; sourceTree = "<group>"; };
+		DB49111A2476BF3A004DAC55 /* TesseractService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TesseractService.swift; sourceTree = "<group>"; };
 		DB507EE32470B743007B555F /* SwiftTesseract */ = {isa = PBXFileReference; lastKnownFileType = folder; name = SwiftTesseract; path = ../SwiftTesseract; sourceTree = "<group>"; };
 		DB710F74246F5E750061EF2C /* VisionService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VisionService.swift; sourceTree = "<group>"; };
 		DB710F7E246F614A0061EF2C /* ImageOverlayView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageOverlayView.swift; sourceTree = "<group>"; };
 		DB710F80246FCB1A0061EF2C /* Font.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Font.swift; sourceTree = "<group>"; };
+		DBF25DC02476CE250008300C /* eng.traineddata */ = {isa = PBXFileReference; lastKnownFileType = file; path = eng.traineddata; sourceTree = "<group>"; };
+		DBF25DC62476D5730008300C /* Tessdata.bundle */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = Tessdata.bundle; sourceTree = BUILT_PRODUCTS_DIR; };
+		DBF25DC82476D5730008300C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		DBF25DD42476D6C10008300C /* Tessdata.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Tessdata.swift; sourceTree = "<group>"; };
+		DBF25DD92476DC1D0008300C /* TesseractWordRecognizeResult.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TesseractWordRecognizeResult.swift; sourceTree = "<group>"; };
+		DBF25DDB2476E6600008300C /* chi_sim.traineddata */ = {isa = PBXFileReference; lastKnownFileType = file; path = chi_sim.traineddata; sourceTree = "<group>"; };
+		DBF25DDD2476E91E0008300C /* osd.traineddata */ = {isa = PBXFileReference; lastKnownFileType = file; name = osd.traineddata; path = ../../../../../usr/local/Cellar/tesseract/4.1.1/share/tessdata/osd.traineddata; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -110,6 +144,13 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		DBF25DC32476D5730008300C /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
@@ -118,6 +159,7 @@
 			children = (
 				DB507EE32470B743007B555F /* SwiftTesseract */,
 				DB34AE96246AE75A00C9D3CF /* ImageReader */,
+				DBF25DC72476D5730008300C /* Tessdata */,
 				DB34AE95246AE75A00C9D3CF /* Products */,
 				DB34AEB3246AF5A400C9D3CF /* Frameworks */,
 			);
@@ -127,6 +169,7 @@
 			isa = PBXGroup;
 			children = (
 				DB34AE94246AE75A00C9D3CF /* ImageReader.app */,
+				DBF25DC62476D5730008300C /* Tessdata.bundle */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -173,6 +216,7 @@
 			isa = PBXGroup;
 			children = (
 				DB710F74246F5E750061EF2C /* VisionService.swift */,
+				DB49111A2476BF3A004DAC55 /* TesseractService.swift */,
 			);
 			path = Service;
 			sourceTree = "<group>";
@@ -219,8 +263,21 @@
 			isa = PBXGroup;
 			children = (
 				DB34AEDB246E0D9900C9D3CF /* Store.swift */,
+				DBF25DD92476DC1D0008300C /* TesseractWordRecognizeResult.swift */,
 			);
 			path = Model;
+			sourceTree = "<group>";
+		};
+		DBF25DC72476D5730008300C /* Tessdata */ = {
+			isa = PBXGroup;
+			children = (
+				DBF25DDD2476E91E0008300C /* osd.traineddata */,
+				DBF25DDB2476E6600008300C /* chi_sim.traineddata */,
+				DBF25DC02476CE250008300C /* eng.traineddata */,
+				DBF25DC82476D5730008300C /* Info.plist */,
+				DBF25DD42476D6C10008300C /* Tessdata.swift */,
+			);
+			path = Tessdata;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -235,10 +292,12 @@
 				DB34AE92246AE75A00C9D3CF /* Resources */,
 				DB34AEB7246AF5A400C9D3CF /* Embed Frameworks */,
 				DB372F132472005D00E24890 /* ShellScript */,
+				DBF25DD22476D6220008300C /* CopyFiles */,
 			);
 			buildRules = (
 			);
 			dependencies = (
+				DBF25DD02476D5CA0008300C /* PBXTargetDependency */,
 			);
 			name = ImageReader;
 			packageProductDependencies = (
@@ -248,6 +307,23 @@
 			productName = ImageReader;
 			productReference = DB34AE94246AE75A00C9D3CF /* ImageReader.app */;
 			productType = "com.apple.product-type.application";
+		};
+		DBF25DC52476D5730008300C /* Tessdata */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = DBF25DCC2476D5730008300C /* Build configuration list for PBXNativeTarget "Tessdata" */;
+			buildPhases = (
+				DBF25DC22476D5730008300C /* Sources */,
+				DBF25DC32476D5730008300C /* Frameworks */,
+				DBF25DC42476D5730008300C /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = Tessdata;
+			productName = Tessdata;
+			productReference = DBF25DC62476D5730008300C /* Tessdata.bundle */;
+			productType = "com.apple.product-type.bundle";
 		};
 /* End PBXNativeTarget section */
 
@@ -261,6 +337,10 @@
 				TargetAttributes = {
 					DB34AE93246AE75A00C9D3CF = {
 						CreatedOnToolsVersion = 11.4.1;
+					};
+					DBF25DC52476D5730008300C = {
+						CreatedOnToolsVersion = 11.5;
+						LastSwiftMigration = 1150;
 					};
 				};
 			};
@@ -282,6 +362,7 @@
 			projectRoot = "";
 			targets = (
 				DB34AE93246AE75A00C9D3CF /* ImageReader */,
+				DBF25DC52476D5730008300C /* Tessdata */,
 			);
 		};
 /* End PBXProject section */
@@ -294,6 +375,15 @@
 				DB34AEA2246AE75D00C9D3CF /* Main.storyboard in Resources */,
 				DB34AE9F246AE75D00C9D3CF /* Preview Assets.xcassets in Resources */,
 				DB34AE9C246AE75D00C9D3CF /* Assets.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		DBF25DC42476D5730008300C /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				DBF25DDC2476E6600008300C /* chi_sim.traineddata in Resources */,
+				DBF25DCD2476D58C0008300C /* eng.traineddata in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -328,6 +418,8 @@
 				DB710F7F246F614A0061EF2C /* ImageOverlayView.swift in Sources */,
 				DB710F75246F5E750061EF2C /* VisionService.swift in Sources */,
 				DB34AE9A246AE75A00C9D3CF /* ContentView.swift in Sources */,
+				DBF25DDA2476DC1D0008300C /* TesseractWordRecognizeResult.swift in Sources */,
+				DBF25DD82476D7650008300C /* TesseractService.swift in Sources */,
 				DB710F81246FCB1A0061EF2C /* Font.swift in Sources */,
 				DB34AE98246AE75A00C9D3CF /* AppDelegate.swift in Sources */,
 				DB34AEB9246AF9FE00C9D3CF /* ImageDropDelegate.swift in Sources */,
@@ -335,7 +427,23 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		DBF25DC22476D5730008300C /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				DBF25DD52476D6C10008300C /* Tessdata.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		DBF25DD02476D5CA0008300C /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = DBF25DC52476D5730008300C /* Tessdata */;
+			targetProxy = DBF25DCF2476D5CA0008300C /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
 		DB34AEA0246AE75D00C9D3CF /* Main.storyboard */ = {
@@ -465,6 +573,7 @@
 		DB34AEA8246AE75D00C9D3CF /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = ImageReader/ImageReader.entitlements;
 				CODE_SIGN_IDENTITY = "Apple Development";
@@ -491,6 +600,7 @@
 					/usr/local/Cellar/openjpeg/2.3.1/lib,
 				);
 				MACOSX_DEPLOYMENT_TARGET = 10.15;
+				MARKETING_VERSION = 1.0.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.mainasuk.ImageReader;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
@@ -500,6 +610,7 @@
 		DB34AEA9246AE75D00C9D3CF /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = ImageReader/ImageReader.entitlements;
 				CODE_SIGN_IDENTITY = "Apple Development";
@@ -526,6 +637,7 @@
 					/usr/local/Cellar/openjpeg/2.3.1/lib,
 				);
 				MACOSX_DEPLOYMENT_TARGET = 10.15;
+				MARKETING_VERSION = 1.0.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.mainasuk.ImageReader;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
@@ -595,6 +707,7 @@
 		DB710F79246F5F950061EF2C /* Preview */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = ImageReader/ImageReader.entitlements;
 				CODE_SIGN_IDENTITY = "Apple Development";
@@ -621,11 +734,80 @@
 					/usr/local/Cellar/openjpeg/2.3.1/lib,
 				);
 				MACOSX_DEPLOYMENT_TARGET = 10.15;
+				MARKETING_VERSION = 1.0.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.mainasuk.ImageReader;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
 			};
 			name = Preview;
+		};
+		DBF25DC92476D5730008300C /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				COMBINE_HIDPI_IMAGES = YES;
+				DEVELOPMENT_TEAM = A8K92XFF77;
+				INFOPLIST_FILE = Tessdata/Info.plist;
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Bundles";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+					"@loader_path/../Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.mainasuk.Tessdata;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 5.0;
+				WRAPPER_EXTENSION = bundle;
+			};
+			name = Debug;
+		};
+		DBF25DCA2476D5730008300C /* Preview */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				COMBINE_HIDPI_IMAGES = YES;
+				DEVELOPMENT_TEAM = A8K92XFF77;
+				INFOPLIST_FILE = Tessdata/Info.plist;
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Bundles";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+					"@loader_path/../Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.mainasuk.Tessdata;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 5.0;
+				WRAPPER_EXTENSION = bundle;
+			};
+			name = Preview;
+		};
+		DBF25DCB2476D5730008300C /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				COMBINE_HIDPI_IMAGES = YES;
+				DEVELOPMENT_TEAM = A8K92XFF77;
+				INFOPLIST_FILE = Tessdata/Info.plist;
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Bundles";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+					"@loader_path/../Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.mainasuk.Tessdata;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				SWIFT_VERSION = 5.0;
+				WRAPPER_EXTENSION = bundle;
+			};
+			name = Release;
 		};
 /* End XCBuildConfiguration section */
 
@@ -646,6 +828,16 @@
 				DB34AEA8246AE75D00C9D3CF /* Debug */,
 				DB710F79246F5F950061EF2C /* Preview */,
 				DB34AEA9246AE75D00C9D3CF /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		DBF25DCC2476D5730008300C /* Build configuration list for PBXNativeTarget "Tessdata" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				DBF25DC92476D5730008300C /* Debug */,
+				DBF25DCA2476D5730008300C /* Preview */,
+				DBF25DCB2476D5730008300C /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;

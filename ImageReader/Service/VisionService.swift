@@ -11,9 +11,7 @@ import Combine
 import Vision
 import CommonOSLog
 
-struct RequestHandlerOptions {
-    
-}
+struct RequestHandlerOptions { }
 
 protocol RequestOptions  {
     associatedtype Request: VNRequest

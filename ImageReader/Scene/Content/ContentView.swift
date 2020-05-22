@@ -13,6 +13,7 @@ struct ContentView: View {
 
     @EnvironmentObject var store: Store
     @ObservedObject var visionService = VisionService()
+    @ObservedObject var tesseractService = TesseractService()
 
     @State var isActive = false
 
@@ -34,13 +35,15 @@ struct ContentView: View {
         .frame(minHeight: 400)
         .onAppear {
             // subscribe image
-            self.visionService.imageSubscription = self.store.content.imagePublisher
-                .assign(to: \.value, on: self.visionService.image)
-            // subscribe recognizeTextRequestOptions.textRecognitionLevel
+            self.visionService.imageSubscription = self.store.content.imagePublisher.assign(to: \.value, on: self.visionService.image)
+            self.tesseractService.imageSubscription = self.store.content.imagePublisher.assign(to: \.value, on: self.tesseractService.image)
+            
+            // subscribe options
             self.visionService.recognizeTextRequestOptionsSubscription = self.store.utility.recognizeTextRequestOptionsPublisher
-                .sink(receiveValue: { options in
-                    self.visionService.recognizeTextRequestOptions.value = options
-                })
+                .assign(to: \.value, on: self.visionService.recognizeTextRequestOptions)
+            self.tesseractService.tesseractOptionsSubscription = self.store.utility.tesseractOptionsPublisher
+                .assign(to: \.value, on: self.tesseractService.tesseractOptions)
+            
             // bind textObservations output to store
             self.visionService.textObservationsSubscription = self.visionService.textObservations
                 .assign(to: \.content.textObservations, on: self.store)
@@ -50,6 +53,9 @@ struct ContentView: View {
             // bind objectnessBasedSaliencyImageObservations to store
             self.visionService.objectnessBasedSaliencyImageObservationSubscription = self.visionService.objectnessBasedSaliencyImageObservation
                 .assign(to: \.content.objectnessBasedSaliencyImageObservations, on: self.store)
+            // bind wordRecognizeResults to store
+            self.tesseractService.wordRecognizeResultsSubscription = self.tesseractService.wordRecognizeResults
+                .assign(to: \.content.tesseractWordRecognizeResults, on: self.store)
         }
     }
 }

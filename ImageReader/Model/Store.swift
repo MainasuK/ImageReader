@@ -27,10 +27,13 @@ extension Store {
         // output
         let imagePublisher = PassthroughSubject<NSImage, Never>()
         
-        // relay
+        // vision relay
         var textObservations: [VNRecognizedTextObservation] = []
         var attentionBasedSaliencyImageObservations: [VNSaliencyImageObservation] = []
         var objectnessBasedSaliencyImageObservations: [VNSaliencyImageObservation] = []
+        
+        // tesseract relay
+        var tesseractWordRecognizeResults: [TesseractWordRecognizeResult] = []
     }
 }
 
@@ -53,6 +56,12 @@ extension Store {
             didSet { recognizeTextRequestOptionsPublisher.send(recognizeTextRequestOptions) }
         }
         let recognizeTextRequestOptionsPublisher = PassthroughSubject<RecognizeTextRequestOptions, Never>()
+        
+        // MARK: - Tesseract
+        var tesseractOptions = TesseractOptions() {
+            didSet { tesseractOptionsPublisher.send(tesseractOptions) }
+        }
+        let tesseractOptionsPublisher = PassthroughSubject<TesseractOptions, Never>()
     }
 }
 
@@ -60,11 +69,13 @@ extension Store.Utility {
     enum ReaderType: CaseIterable {
         case vision
         case opencv
+        case tesseract
         
         var text: String {
             switch self {
             case .vision:     return "Vision"
             case .opencv:     return "OpenCV"
+            case .tesseract:  return "Tesseract"
             }
         }
     }

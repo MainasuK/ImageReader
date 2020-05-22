@@ -15,57 +15,62 @@ struct ImageOverlayView: View {
     
     var body: some View {
         GeometryReader { proxy in
-            ZStack(alignment: .topLeading) {
-                // Attention Based Saliency
-                if self.store.utility.saliencyType == .attention {
-                    ForEach(self.store.content.attentionBasedSaliencyImageObservations, id: \.self) { observation in
-                        Group {
-                            if self.store.utility.saliencyMaskEnabled {
-                                self.heatmap(fromSaliencyImageObservation: observation, size: proxy.size, maskAlpha: self.store.utility.saliencyMaskAlpha)
-                                    .frame(width: proxy.size.width, height: proxy.size.height)
-                            }
-                            if self.store.utility.sailencyBoundingBoxEnabled {
-                                self.salientObjectBoxes(fromSaliencyImageObservation: observation, size: proxy.size)
-                                     .frame(width: proxy.size.width, height: proxy.size.height)
-                            }
-                        }
-                    }
-                }
-                // Objectness Based Saliency
-                if self.store.utility.saliencyType == .objectness {
-                    ForEach(self.store.content.objectnessBasedSaliencyImageObservations, id: \.self) { observation in
-                        Group {
-                            if self.store.utility.saliencyMaskEnabled {
-                                self.heatmap(fromSaliencyImageObservation: observation, size: proxy.size, maskAlpha: self.store.utility.saliencyMaskAlpha)
-                                    .frame(width: proxy.size.width, height: proxy.size.height)
-                            }
-                            if self.store.utility.sailencyBoundingBoxEnabled {
-                                self.salientObjectBoxes(fromSaliencyImageObservation: observation, size: proxy.size)
-                                    .frame(width: proxy.size.width, height: proxy.size.height)
-                            }
-                        }
-                    }
-                }
-                // Text Observations
-                ForEach(self.store.content.textObservations, id: \.self) { observation in
-                    Path { path in
-                        path.move(to: CGPoint(x: proxy.size.width * observation.topLeft.x, y: proxy.size.height * (1 - observation.topLeft.y)))
-                        path.addLine(to: CGPoint(x: proxy.size.width * observation.topRight.x, y: proxy.size.height * (1 - observation.topRight.y)))
-                        path.addLine(to: CGPoint(x: proxy.size.width * observation.bottomRight.x, y: proxy.size.height * (1 - observation.bottomRight.y)))
-                        path.addLine(to: CGPoint(x: proxy.size.width * observation.bottomLeft.x, y: proxy.size.height * (1 - observation.bottomLeft.y)))
-                        path.closeSubpath()
-                    }
-                    .stroke(Color.red, lineWidth: 2)
-                }
-
-            }
-            .frame(width: proxy.size.width, height: proxy.size.height, alignment: .topLeading)
+            self.visionOverlay(proxy: proxy)
+            self.tesseractOverlay(proxy: proxy)
         }
     }
     
 }
 
+// MARK: - Vision
 extension ImageOverlayView {
+    private func visionOverlay(proxy: GeometryProxy) -> some View {
+        ZStack(alignment: .topLeading) {
+            // Attention Based Saliency
+            if self.store.utility.saliencyType == .attention {
+                ForEach(self.store.content.attentionBasedSaliencyImageObservations, id: \.self) { observation in
+                    Group {
+                        if self.store.utility.saliencyMaskEnabled {
+                            self.heatmap(fromSaliencyImageObservation: observation, size: proxy.size, maskAlpha: self.store.utility.saliencyMaskAlpha)
+                                .frame(width: proxy.size.width, height: proxy.size.height)
+                        }
+                        if self.store.utility.sailencyBoundingBoxEnabled {
+                            self.salientObjectBoxes(fromSaliencyImageObservation: observation, size: proxy.size)
+                                .frame(width: proxy.size.width, height: proxy.size.height)
+                        }
+                    }
+                }
+            }
+            // Objectness Based Saliency
+            if self.store.utility.saliencyType == .objectness {
+                ForEach(self.store.content.objectnessBasedSaliencyImageObservations, id: \.self) { observation in
+                    Group {
+                        if self.store.utility.saliencyMaskEnabled {
+                            self.heatmap(fromSaliencyImageObservation: observation, size: proxy.size, maskAlpha: self.store.utility.saliencyMaskAlpha)
+                                .frame(width: proxy.size.width, height: proxy.size.height)
+                        }
+                        if self.store.utility.sailencyBoundingBoxEnabled {
+                            self.salientObjectBoxes(fromSaliencyImageObservation: observation, size: proxy.size)
+                                .frame(width: proxy.size.width, height: proxy.size.height)
+                        }
+                    }
+                }
+            }
+            // Text Observations
+            ForEach(self.store.content.textObservations, id: \.self) { observation in
+                Path { path in
+                    path.move(to: CGPoint(x: proxy.size.width * observation.topLeft.x, y: proxy.size.height * (1 - observation.topLeft.y)))
+                    path.addLine(to: CGPoint(x: proxy.size.width * observation.topRight.x, y: proxy.size.height * (1 - observation.topRight.y)))
+                    path.addLine(to: CGPoint(x: proxy.size.width * observation.bottomRight.x, y: proxy.size.height * (1 - observation.bottomRight.y)))
+                    path.addLine(to: CGPoint(x: proxy.size.width * observation.bottomLeft.x, y: proxy.size.height * (1 - observation.bottomLeft.y)))
+                    path.closeSubpath()
+                }
+                .stroke(Color.red, lineWidth: 2)
+            }
+            
+        }
+        .frame(width: proxy.size.width, height: proxy.size.height, alignment: .topLeading)
+    }
     
     func heatmap(fromSaliencyImageObservation observation: VNSaliencyImageObservation, size: CGSize, maskAlpha: CGFloat) -> some View {
         let ciImage = CIImage(cvPixelBuffer: observation.pixelBuffer)
@@ -94,5 +99,28 @@ extension ImageOverlayView {
             }
         }
         .stroke(Color.yellow, lineWidth: 2)
+    }
+    
+}
+
+// MARK: - Tesseract
+extension ImageOverlayView {
+    private func tesseractOverlay(proxy: GeometryProxy) -> some View {
+        ZStack(alignment: .topLeading) {
+            // Word Recognize
+            ForEach(self.store.content.tesseractWordRecognizeResults, id: \.id) { result in
+                Path { path in
+                    guard result.imageSize.width > 0 && result.imageSize.height > 0 else { return }
+                    let x = result.boundingBox.origin.x / result.imageSize.width * proxy.size.width
+                    let y = result.boundingBox.origin.y / result.imageSize.height * proxy.size.height
+                    let width = result.boundingBox.width / result.imageSize.width * proxy.size.width
+                    let height = result.boundingBox.height / result.imageSize.height * proxy.size.height
+                    path.addRect(CGRect(x: x, y: y, width: width, height: height))
+                }
+                .stroke(Color.blue, lineWidth: 2)
+            }
+            
+        }
+        .frame(width: proxy.size.width, height: proxy.size.height, alignment: .topLeading)
     }
 }

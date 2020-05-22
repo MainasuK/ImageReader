@@ -8,6 +8,7 @@
 
 import SwiftUI
 import Vision
+import SwiftTesseract
 
 struct ListPopoverBoundsPreferenceKey: PreferenceKey {
     typealias Value = [UUID:Anchor<CGRect>]
@@ -45,12 +46,16 @@ struct UtilityView: View {
                 if store.utility.readerType == .opencv {
                     openCVUtilityView
                 }
+                if store.utility.readerType == .tesseract {
+                    tesseractUtilityView
+                }
             }
         } // end VStack
         .font(.gridRegular)
     }
 }
 
+// MARK: - Vision
 extension UtilityView {
     var visionUtilityView: some View {
         VStack(alignment: .leading) {
@@ -178,6 +183,7 @@ extension UtilityView {
 
 }
 
+// MARK: - OpenCV
 extension UtilityView {
     var openCVUtilityView: some View {
         VStack {
@@ -186,6 +192,48 @@ extension UtilityView {
     }
 }
 
+// MARK: - Tesseract
+extension UtilityView {
+    var tesseractUtilityView: some View {
+        VStack(alignment: .leading) {
+            tesseractTextRecognitionUtilityView
+            Divider()
+            List(store.content.tesseractWordRecognizeResults, id: \.id) { result in
+                VStack(alignment: .leading) {
+                    Text("\(result.text) - \(result.confidence)")
+                    Divider()
+                }
+            }
+            .listStyle(SidebarListStyle())
+        }
+    }
+
+    var tesseractTextRecognitionUtilityView: some View {
+        VStack(alignment: .leading) {
+            Text("Text Recognition")
+                .font(.caption)
+            GridRow(title: "") {
+                Toggle("Enabled", isOn: $store.utility.tesseractOptions.enabled)
+            }
+            GridRow(title: "Mode") {
+                Picker(selection: $store.utility.tesseractOptions.pageSegmentMode, label: EmptyView()) {
+                    ForEach(Tesseract.PageSegMode.allCases, id: \.self) { mode in
+                        Text(mode.text)
+                    }
+                }
+            }
+            GridRow(title: "Level") {
+                Picker(selection: $store.utility.tesseractOptions.pageIteratorLevel, label: EmptyView()) {
+                    ForEach(Tesseract.PageIteratorLevel.allCases, id: \.self) { level in
+                        Text(level.text)
+                    }
+                }
+            }
+        }
+        .padding([.leading, .trailing])
+    }
+
+}
 
 struct UtilityView_Previews: PreviewProvider {
     
@@ -201,7 +249,6 @@ struct UtilityView_Previews: PreviewProvider {
                 UtilityView().environmentObject(store(for: type))
                     .previewLayout(.fixed(width: 400, height: 300))
                     .previewDisplayName(type.text)
-                
             }
         }
     }

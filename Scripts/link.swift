@@ -20,6 +20,7 @@ Bash.debugEnabled = false
 class Bash {
     static var debugEnabled = false
 
+    // save command search time
     static var commandCache: [String: String] = [:]
     
     @discardableResult
