@@ -2,7 +2,6 @@
 
 macOS App for demonstrate image analysis tool like Vision.framework.
 
-
 ## Feature
 
 ### Vision.framework
@@ -24,6 +23,11 @@ macOS App for demonstrate image analysis tool like Vision.framework.
 ### Tesseract
 - [x] Text Recognization
 
+
+## Setup
+ImageReader using multiple framework to operate image. Please read the reference dependencies README to setup building environment.
+
+- [SwiftTesseract](https://github.com/MainasuK/SwiftTesseract#setup): Setup Tesseract installation.
 
 ## Usage
 
