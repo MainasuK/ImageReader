@@ -31,4 +31,7 @@ This app is still under developing. Please build from source code via Xcode.app.
 
 
 ## Demo
-![snapstho](./Press/snapshot.png)
+![Text Recognize](./Press/snapshot.png)
+
+![Image Saliency](./Press/snapshot-2.png)
+> Photo from Unsplash @zis_view
