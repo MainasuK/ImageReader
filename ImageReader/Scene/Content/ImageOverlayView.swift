@@ -110,12 +110,11 @@ extension ImageOverlayView {
             // Word Recognize
             ForEach(self.store.content.tesseractWordRecognizeResults, id: \.id) { result in
                 Path { path in
-                    guard result.imageSize.width > 0 && result.imageSize.height > 0 else { return }
-                    let x = result.boundingBox.origin.x / result.imageSize.width * proxy.size.width
-                    let y = result.boundingBox.origin.y / result.imageSize.height * proxy.size.height
-                    let width = result.boundingBox.width / result.imageSize.width * proxy.size.width
-                    let height = result.boundingBox.height / result.imageSize.height * proxy.size.height
-                    path.addRect(CGRect(x: x, y: y, width: width, height: height))
+                    path.move(to: CGPoint(x: proxy.size.width * result.rectangle.topLeft.x, y: proxy.size.height * result.rectangle.topLeft.y))
+                    path.addLine(to: CGPoint(x: proxy.size.width * result.rectangle.topRight.x, y: proxy.size.height * result.rectangle.topRight.y))
+                    path.addLine(to: CGPoint(x: proxy.size.width * result.rectangle.bottomRight.x, y: proxy.size.height * result.rectangle.bottomRight.y))
+                    path.addLine(to: CGPoint(x: proxy.size.width * result.rectangle.bottomLeft.x, y: proxy.size.height * result.rectangle.bottomLeft.y))
+                    path.closeSubpath()
                 }
                 .stroke(Color.blue, lineWidth: 2)
             }

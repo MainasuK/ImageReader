@@ -62,6 +62,11 @@ extension Store {
             didSet { tesseractOptionsPublisher.send(tesseractOptions) }
         }
         let tesseractOptionsPublisher = PassthroughSubject<TesseractOptions, Never>()
+        
+        var enableVsionPreProcessing = true {
+            didSet { enableVsionPreProcessingPublisher.send(enableVsionPreProcessing) }
+        }
+        let enableVsionPreProcessingPublisher = PassthroughSubject<Bool, Never>()
     }
 }
 

@@ -15,7 +15,7 @@ import Foundation
 
 let env = ProcessInfo.processInfo.environment
 
-Bash.debugEnabled = false
+Bash.debugEnabled = true
 
 class Bash {
     static var debugEnabled = false
@@ -35,9 +35,11 @@ class Bash {
             Bash.commandCache[command] = theCommand
         }
         let arguments = arguments.map { $0.trimmingCharacters(in: .whitespacesAndNewlines) }
-        let result = try run(command: _command, arguments: arguments, environment: environment)
         if Bash.debugEnabled {
             print("+\((#file as NSString).lastPathComponent):\(_line)> \(_command) \(arguments.joined(separator: " "))")
+        }
+        let result = try run(command: _command, arguments: arguments, environment: environment)
+        if Bash.debugEnabled {
             print(result)
         }
         return result
@@ -57,7 +59,9 @@ class Bash {
         if output.hasSuffix("\n") {
             output.removeLast(1)
         }
-        if process.terminationStatus != 0 { fatalError("shell execute coccus fail") }
+        if process.terminationStatus != 0 {
+            fatalError("shell execute fail: \(command) \(arguments.joined(separator: " "))")
+        }
         return output
     }
 }
@@ -152,8 +156,8 @@ let bash = Bash()
 // % otool -L /usr/local/bin/tesseract
 // /usr/local/Cellar/tesseract/4.1.1/lib/libtesseract.4.dylib (compatibility version 5.0.0, current version 5.1.0) 
 // /usr/local/opt/leptonica/lib/liblept.5.dylib (compatibility version 6.0.0, current version 6.3.0)
-let tesseractLocation = try bash.run("which", arguments: ["tesseract"])
-let dependencies = try extractDependenciesFromOtoolWithFlagL(path: tesseractLocation)
+let tesseractLocation = try bash.run("brew", arguments: ["--prefix", "tesseract"])
+let dependencies = try extractDependenciesFromOtoolWithFlagL(path: tesseractLocation + "/lib/libtesseract.dylib")
 
 // build tree
 var tree = DylibTree()

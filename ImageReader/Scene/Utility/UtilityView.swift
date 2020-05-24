@@ -212,10 +212,23 @@ extension UtilityView {
         VStack(alignment: .leading) {
             Text("Text Recognition")
                 .font(.caption)
-            GridRow(title: "") {
+            GridRow(title: " ") {
                 Toggle("Enabled", isOn: $store.utility.tesseractOptions.enabled)
             }
+            GridRow(title: " ") {
+                Toggle("Vision Pre-Processing Enabled", isOn: $store.utility.enableVsionPreProcessing)
+            }
+            GridRow(title: " ") {
+                Toggle("Custom Enabled", isOn: $store.utility.tesseractOptions.isCustomEnabled)
+            }
             GridRow(title: "Mode") {
+                Picker(selection: $store.utility.tesseractOptions.mode, label: EmptyView()) {
+                    ForEach(TesseractOptions.Mode.allCases, id: \.self) { mode in
+                        Text(mode.text)
+                    }
+                }
+            }
+            GridRow(title: "Segment") {
                 Picker(selection: $store.utility.tesseractOptions.pageSegmentMode, label: EmptyView()) {
                     ForEach(Tesseract.PageSegMode.allCases, id: \.self) { mode in
                         Text(mode.text)

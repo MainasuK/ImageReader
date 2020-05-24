@@ -39,12 +39,12 @@
 		DB710F75246F5E750061EF2C /* VisionService.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB710F74246F5E750061EF2C /* VisionService.swift */; };
 		DB710F7F246F614A0061EF2C /* ImageOverlayView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB710F7E246F614A0061EF2C /* ImageOverlayView.swift */; };
 		DB710F81246FCB1A0061EF2C /* Font.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB710F80246FCB1A0061EF2C /* Font.swift */; };
-		DBF25DCD2476D58C0008300C /* eng.traineddata in Resources */ = {isa = PBXBuildFile; fileRef = DBF25DC02476CE250008300C /* eng.traineddata */; };
 		DBF25DD32476D6310008300C /* Tessdata.bundle in CopyFiles */ = {isa = PBXBuildFile; fileRef = DBF25DC62476D5730008300C /* Tessdata.bundle */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		DBF25DD52476D6C10008300C /* Tessdata.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBF25DD42476D6C10008300C /* Tessdata.swift */; };
 		DBF25DD82476D7650008300C /* TesseractService.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB49111A2476BF3A004DAC55 /* TesseractService.swift */; };
 		DBF25DDA2476DC1D0008300C /* TesseractWordRecognizeResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBF25DD92476DC1D0008300C /* TesseractWordRecognizeResult.swift */; };
-		DBF25DDC2476E6600008300C /* chi_sim.traineddata in Resources */ = {isa = PBXBuildFile; fileRef = DBF25DDB2476E6600008300C /* chi_sim.traineddata */; };
+		DBF25DE22478DAC20008300C /* best in Resources */ = {isa = PBXBuildFile; fileRef = DBF25DE12478DAC20008300C /* best */; };
+		DBF25DE42478DAD40008300C /* fast in Resources */ = {isa = PBXBuildFile; fileRef = DBF25DE32478DAD40008300C /* fast */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -116,13 +116,12 @@
 		DB710F74246F5E750061EF2C /* VisionService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VisionService.swift; sourceTree = "<group>"; };
 		DB710F7E246F614A0061EF2C /* ImageOverlayView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageOverlayView.swift; sourceTree = "<group>"; };
 		DB710F80246FCB1A0061EF2C /* Font.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Font.swift; sourceTree = "<group>"; };
-		DBF25DC02476CE250008300C /* eng.traineddata */ = {isa = PBXFileReference; lastKnownFileType = file; path = eng.traineddata; sourceTree = "<group>"; };
 		DBF25DC62476D5730008300C /* Tessdata.bundle */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = Tessdata.bundle; sourceTree = BUILT_PRODUCTS_DIR; };
 		DBF25DC82476D5730008300C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		DBF25DD42476D6C10008300C /* Tessdata.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Tessdata.swift; sourceTree = "<group>"; };
 		DBF25DD92476DC1D0008300C /* TesseractWordRecognizeResult.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TesseractWordRecognizeResult.swift; sourceTree = "<group>"; };
-		DBF25DDB2476E6600008300C /* chi_sim.traineddata */ = {isa = PBXFileReference; lastKnownFileType = file; path = chi_sim.traineddata; sourceTree = "<group>"; };
-		DBF25DDD2476E91E0008300C /* osd.traineddata */ = {isa = PBXFileReference; lastKnownFileType = file; name = osd.traineddata; path = ../../../../../usr/local/Cellar/tesseract/4.1.1/share/tessdata/osd.traineddata; sourceTree = "<group>"; };
+		DBF25DE12478DAC20008300C /* best */ = {isa = PBXFileReference; lastKnownFileType = folder; path = best; sourceTree = "<group>"; };
+		DBF25DE32478DAD40008300C /* fast */ = {isa = PBXFileReference; lastKnownFileType = folder; path = fast; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -179,9 +178,9 @@
 			children = (
 				DB34AEA3246AE75D00C9D3CF /* Info.plist */,
 				DB34AEA4246AE75D00C9D3CF /* ImageReader.entitlements */,
+				DB710F7D246F61370061EF2C /* Model */,
 				DB710F76246F5E780061EF2C /* Service */,
 				DB710F7A246F611A0061EF2C /* Scene */,
-				DB710F7D246F61370061EF2C /* Model */,
 				DB34AE9D246AE75D00C9D3CF /* Preview Content */,
 				DB710F77246F5EBE0061EF2C /* Supporting Files */,
 			);
@@ -271,9 +270,8 @@
 		DBF25DC72476D5730008300C /* Tessdata */ = {
 			isa = PBXGroup;
 			children = (
-				DBF25DDD2476E91E0008300C /* osd.traineddata */,
-				DBF25DDB2476E6600008300C /* chi_sim.traineddata */,
-				DBF25DC02476CE250008300C /* eng.traineddata */,
+				DBF25DE32478DAD40008300C /* fast */,
+				DBF25DE12478DAC20008300C /* best */,
 				DBF25DC82476D5730008300C /* Info.plist */,
 				DBF25DD42476D6C10008300C /* Tessdata.swift */,
 			);
@@ -382,8 +380,8 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				DBF25DDC2476E6600008300C /* chi_sim.traineddata in Resources */,
-				DBF25DCD2476D58C0008300C /* eng.traineddata in Resources */,
+				DBF25DE42478DAD40008300C /* fast in Resources */,
+				DBF25DE22478DAC20008300C /* best in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -405,7 +403,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "swift ./Scripts/link.swift\n";
+			shellScript = "set -ex\nswift ./Scripts/link.swift\n";
 		};
 /* End PBXShellScriptBuildPhase section */
 

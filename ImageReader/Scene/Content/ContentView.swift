@@ -28,7 +28,7 @@ struct ContentView: View {
                 .background(Text("Drag and drop image here."))
                 .frame(minWidth: 400, maxWidth: .infinity, maxHeight: .infinity)
                 .background(isActive ? Color.green : Color.gray)
-                .onDrop(of: ["public.file-url"], delegate: dropDelegate)
+                .onDrop(of: ImageDropDelegate.itemsType, delegate: dropDelegate)
             UtilityView()
                 .frame(width: 400)
         }
@@ -41,6 +41,9 @@ struct ContentView: View {
             // subscribe options
             self.visionService.recognizeTextRequestOptionsSubscription = self.store.utility.recognizeTextRequestOptionsPublisher
                 .assign(to: \.value, on: self.visionService.recognizeTextRequestOptions)
+            self.tesseractService.isVisionSearchHelperEnabledSubscription = self.store.utility.enableVsionPreProcessingPublisher
+                .print()
+                .assign(to: \.value, on: self.tesseractService.isVisionSearchHelperEnabled)
             self.tesseractService.tesseractOptionsSubscription = self.store.utility.tesseractOptionsPublisher
                 .assign(to: \.value, on: self.tesseractService.tesseractOptions)
             

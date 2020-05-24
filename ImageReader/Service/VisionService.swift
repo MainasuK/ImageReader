@@ -84,6 +84,7 @@ final class VisionService: ObservableObject {
     var recognizeTextRequestOptionsSubscription: AnyCancellable?
 
     let generateImageFeaturePrintRequestOptions = CurrentValueSubject<GenerateImageFeaturePrintRequestOptions, Never>(GenerateImageFeaturePrintRequestOptions())
+    
     let generateAttentionBasedSaliencyImageRequestOptions = CurrentValueSubject<ImageBasedRequestOptions, Never>(ImageBasedRequestOptions())
     let generateObjectnessBasedSaliencyImageRequestOptions = CurrentValueSubject<ImageBasedRequestOptions, Never>(ImageBasedRequestOptions())
 

@@ -12,7 +12,12 @@ struct TesseractWordRecognizeResult: Identifiable {
     let id = UUID()
     let text: String
     let confidence: Float
-    let boundingBox: CGRect
-    let imageSize: CGSize
+    let rectangle: Rectangle
 }
 
+struct Rectangle {
+    var topLeft: CGPoint
+    var topRight: CGPoint
+    var bottomLeft: CGPoint
+    var bottomRight: CGPoint
+}
