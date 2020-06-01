@@ -159,7 +159,7 @@ final class TesseractService: ObservableObject {
                         }()
 
                         let tesseract = Tesseract()
-                        let language: Tesseract.Language = options.mode == .best && options.isCustomEnabled ? .custom("NotoSans_SemiLight.") : .custom("chi_sim")
+                        let language: Tesseract.Language = options.mode == .best && options.isCustomEnabled ? .custom("NotoSans_SemiLight") : .custom("chi_sim")
                         try tesseract.init3(datapath: datapath, language: language)
                         tesseract.setPageSegMode(mode: options.pageSegmentMode)
                         try tesseract.setImage2(nsImage: image)

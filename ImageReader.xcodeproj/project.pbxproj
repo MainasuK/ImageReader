@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		524043FA2C62D23AF5028A0F /* Pods_Tessdata.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 48302519BF32C3DE03BB05C0 /* Pods_Tessdata.framework */; };
+		C48CA985CEC7E3046FD6B68F /* Pods_ImageReader.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3B406EDB25AD38286AD11036 /* Pods_ImageReader.framework */; };
 		DB34AE98246AE75A00C9D3CF /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB34AE97246AE75A00C9D3CF /* AppDelegate.swift */; };
 		DB34AE9A246AE75A00C9D3CF /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB34AE99246AE75A00C9D3CF /* ContentView.swift */; };
 		DB34AE9C246AE75D00C9D3CF /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DB34AE9B246AE75D00C9D3CF /* Assets.xcassets */; };
@@ -39,6 +41,7 @@
 		DB710F75246F5E750061EF2C /* VisionService.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB710F74246F5E750061EF2C /* VisionService.swift */; };
 		DB710F7F246F614A0061EF2C /* ImageOverlayView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB710F7E246F614A0061EF2C /* ImageOverlayView.swift */; };
 		DB710F81246FCB1A0061EF2C /* Font.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB710F80246FCB1A0061EF2C /* Font.swift */; };
+		DBCD1A36248477360033830C /* OpenCVService.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBCD1A35248477360033830C /* OpenCVService.swift */; };
 		DBF25DD32476D6310008300C /* Tessdata.bundle in CopyFiles */ = {isa = PBXBuildFile; fileRef = DBF25DC62476D5730008300C /* Tessdata.bundle */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		DBF25DD52476D6C10008300C /* Tessdata.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBF25DD42476D6C10008300C /* Tessdata.swift */; };
 		DBF25DD82476D7650008300C /* TesseractService.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB49111A2476BF3A004DAC55 /* TesseractService.swift */; };
@@ -91,6 +94,13 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		3B406EDB25AD38286AD11036 /* Pods_ImageReader.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ImageReader.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		48302519BF32C3DE03BB05C0 /* Pods_Tessdata.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Tessdata.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		590D5A07307AB67501BF749F /* Pods-ImageReader.preview.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ImageReader.preview.xcconfig"; path = "Target Support Files/Pods-ImageReader/Pods-ImageReader.preview.xcconfig"; sourceTree = "<group>"; };
+		85F331D9A60B36E0CFCDF781 /* Pods-Tessdata.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Tessdata.release.xcconfig"; path = "Target Support Files/Pods-Tessdata/Pods-Tessdata.release.xcconfig"; sourceTree = "<group>"; };
+		88AF4F4A852C1803F0726AB7 /* Pods-ImageReader.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ImageReader.debug.xcconfig"; path = "Target Support Files/Pods-ImageReader/Pods-ImageReader.debug.xcconfig"; sourceTree = "<group>"; };
+		B10BAC3C4A3DDC0F25811B53 /* Pods-Tessdata.preview.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Tessdata.preview.xcconfig"; path = "Target Support Files/Pods-Tessdata/Pods-Tessdata.preview.xcconfig"; sourceTree = "<group>"; };
+		CDFEB402C4AA61573B95F511 /* Pods-Tessdata.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Tessdata.debug.xcconfig"; path = "Target Support Files/Pods-Tessdata/Pods-Tessdata.debug.xcconfig"; sourceTree = "<group>"; };
 		DB34AE94246AE75A00C9D3CF /* ImageReader.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ImageReader.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		DB34AE97246AE75A00C9D3CF /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		DB34AE99246AE75A00C9D3CF /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -116,12 +126,14 @@
 		DB710F74246F5E750061EF2C /* VisionService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VisionService.swift; sourceTree = "<group>"; };
 		DB710F7E246F614A0061EF2C /* ImageOverlayView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageOverlayView.swift; sourceTree = "<group>"; };
 		DB710F80246FCB1A0061EF2C /* Font.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Font.swift; sourceTree = "<group>"; };
+		DBCD1A35248477360033830C /* OpenCVService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OpenCVService.swift; sourceTree = "<group>"; };
 		DBF25DC62476D5730008300C /* Tessdata.bundle */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = Tessdata.bundle; sourceTree = BUILT_PRODUCTS_DIR; };
 		DBF25DC82476D5730008300C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		DBF25DD42476D6C10008300C /* Tessdata.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Tessdata.swift; sourceTree = "<group>"; };
 		DBF25DD92476DC1D0008300C /* TesseractWordRecognizeResult.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TesseractWordRecognizeResult.swift; sourceTree = "<group>"; };
 		DBF25DE12478DAC20008300C /* best */ = {isa = PBXFileReference; lastKnownFileType = folder; path = best; sourceTree = "<group>"; };
 		DBF25DE32478DAD40008300C /* fast */ = {isa = PBXFileReference; lastKnownFileType = folder; path = fast; sourceTree = "<group>"; };
+		EB4EE5E66F636F707FAE80DA /* Pods-ImageReader.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ImageReader.release.xcconfig"; path = "Target Support Files/Pods-ImageReader/Pods-ImageReader.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -140,6 +152,7 @@
 				DB49110D24757D3E004DAC55 /* libjpeg.9.dylib in Frameworks */,
 				DB49110724757C75004DAC55 /* libwebpmux.3.dylib in Frameworks */,
 				DB372EE22471AB8900E24890 /* SwiftTesseract in Frameworks */,
+				C48CA985CEC7E3046FD6B68F /* Pods_ImageReader.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -147,12 +160,26 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				524043FA2C62D23AF5028A0F /* Pods_Tessdata.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		5D8E2BE7A3E7EB8B3892FCF0 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				88AF4F4A852C1803F0726AB7 /* Pods-ImageReader.debug.xcconfig */,
+				590D5A07307AB67501BF749F /* Pods-ImageReader.preview.xcconfig */,
+				EB4EE5E66F636F707FAE80DA /* Pods-ImageReader.release.xcconfig */,
+				CDFEB402C4AA61573B95F511 /* Pods-Tessdata.debug.xcconfig */,
+				B10BAC3C4A3DDC0F25811B53 /* Pods-Tessdata.preview.xcconfig */,
+				85F331D9A60B36E0CFCDF781 /* Pods-Tessdata.release.xcconfig */,
+			);
+			path = Pods;
+			sourceTree = "<group>";
+		};
 		DB34AE8B246AE75A00C9D3CF = {
 			isa = PBXGroup;
 			children = (
@@ -161,6 +188,7 @@
 				DBF25DC72476D5730008300C /* Tessdata */,
 				DB34AE95246AE75A00C9D3CF /* Products */,
 				DB34AEB3246AF5A400C9D3CF /* Frameworks */,
+				5D8E2BE7A3E7EB8B3892FCF0 /* Pods */,
 			);
 			sourceTree = "<group>";
 		};
@@ -207,6 +235,8 @@
 				DB49110324757BF6004DAC55 /* libtiff.5.dylib */,
 				DB372EDE2471A7D600E24890 /* libtesseract.4.dylib */,
 				DB372EDB2471A7BF00E24890 /* liblept.5.dylib */,
+				3B406EDB25AD38286AD11036 /* Pods_ImageReader.framework */,
+				48302519BF32C3DE03BB05C0 /* Pods_Tessdata.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -216,6 +246,7 @@
 			children = (
 				DB710F74246F5E750061EF2C /* VisionService.swift */,
 				DB49111A2476BF3A004DAC55 /* TesseractService.swift */,
+				DBCD1A35248477360033830C /* OpenCVService.swift */,
 			);
 			path = Service;
 			sourceTree = "<group>";
@@ -285,12 +316,14 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = DB34AEA7246AE75D00C9D3CF /* Build configuration list for PBXNativeTarget "ImageReader" */;
 			buildPhases = (
+				0737A1596C3C19DC20B17AA9 /* [CP] Check Pods Manifest.lock */,
 				DB34AE90246AE75A00C9D3CF /* Sources */,
 				DB34AE91246AE75A00C9D3CF /* Frameworks */,
 				DB34AE92246AE75A00C9D3CF /* Resources */,
 				DB34AEB7246AF5A400C9D3CF /* Embed Frameworks */,
 				DB372F132472005D00E24890 /* ShellScript */,
 				DBF25DD22476D6220008300C /* CopyFiles */,
+				1946DD6C7E87176543AC3F3F /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -310,6 +343,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = DBF25DCC2476D5730008300C /* Build configuration list for PBXNativeTarget "Tessdata" */;
 			buildPhases = (
+				E42CE15AC994B7324CB67048 /* [CP] Check Pods Manifest.lock */,
 				DBF25DC22476D5730008300C /* Sources */,
 				DBF25DC32476D5730008300C /* Frameworks */,
 				DBF25DC42476D5730008300C /* Resources */,
@@ -388,6 +422,45 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
+		0737A1596C3C19DC20B17AA9 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-ImageReader-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		1946DD6C7E87176543AC3F3F /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-ImageReader/Pods-ImageReader-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-ImageReader/Pods-ImageReader-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-ImageReader/Pods-ImageReader-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
 		DB372F132472005D00E24890 /* ShellScript */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -405,6 +478,28 @@
 			shellPath = /bin/sh;
 			shellScript = "set -ex\nswift ./Scripts/link.swift\n";
 		};
+		E42CE15AC994B7324CB67048 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-Tessdata-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
 /* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
@@ -412,6 +507,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				DBCD1A36248477360033830C /* OpenCVService.swift in Sources */,
 				DB34AEDC246E0D9900C9D3CF /* Store.swift in Sources */,
 				DB710F7F246F614A0061EF2C /* ImageOverlayView.swift in Sources */,
 				DB710F75246F5E750061EF2C /* VisionService.swift in Sources */,
@@ -570,6 +666,7 @@
 		};
 		DB34AEA8246AE75D00C9D3CF /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 88AF4F4A852C1803F0726AB7 /* Pods-ImageReader.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
@@ -599,6 +696,23 @@
 				);
 				MACOSX_DEPLOYMENT_TARGET = 10.15;
 				MARKETING_VERSION = 1.0.0;
+				OTHER_LDFLAGS = (
+					"$(inherited)",
+					"-ObjC",
+					"-framework",
+					"\"Accelerate\"",
+					"-framework",
+					"\"Cocoa\"",
+					"-framework",
+					"\"CoreGraphics\"",
+					"-framework",
+					"\"OpenCL\"",
+					"-framework",
+					"\"OpenCVBridge\"",
+					"-framework",
+					"\"QuartzCore\"",
+					"-lc++",
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.mainasuk.ImageReader;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
@@ -607,6 +721,7 @@
 		};
 		DB34AEA9246AE75D00C9D3CF /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = EB4EE5E66F636F707FAE80DA /* Pods-ImageReader.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
@@ -636,6 +751,23 @@
 				);
 				MACOSX_DEPLOYMENT_TARGET = 10.15;
 				MARKETING_VERSION = 1.0.0;
+				OTHER_LDFLAGS = (
+					"$(inherited)",
+					"-ObjC",
+					"-framework",
+					"\"Accelerate\"",
+					"-framework",
+					"\"Cocoa\"",
+					"-framework",
+					"\"CoreGraphics\"",
+					"-framework",
+					"\"OpenCL\"",
+					"-framework",
+					"\"OpenCVBridge\"",
+					"-framework",
+					"\"QuartzCore\"",
+					"-lc++",
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.mainasuk.ImageReader;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
@@ -704,6 +836,7 @@
 		};
 		DB710F79246F5F950061EF2C /* Preview */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 590D5A07307AB67501BF749F /* Pods-ImageReader.preview.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
@@ -733,6 +866,23 @@
 				);
 				MACOSX_DEPLOYMENT_TARGET = 10.15;
 				MARKETING_VERSION = 1.0.0;
+				OTHER_LDFLAGS = (
+					"$(inherited)",
+					"-ObjC",
+					"-framework",
+					"\"Accelerate\"",
+					"-framework",
+					"\"Cocoa\"",
+					"-framework",
+					"\"CoreGraphics\"",
+					"-framework",
+					"\"OpenCL\"",
+					"-framework",
+					"\"OpenCVBridge\"",
+					"-framework",
+					"\"QuartzCore\"",
+					"-lc++",
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.mainasuk.ImageReader;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
@@ -741,6 +891,7 @@
 		};
 		DBF25DC92476D5730008300C /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = CDFEB402C4AA61573B95F511 /* Pods-Tessdata.debug.xcconfig */;
 			buildSettings = {
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
@@ -764,6 +915,7 @@
 		};
 		DBF25DCA2476D5730008300C /* Preview */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = B10BAC3C4A3DDC0F25811B53 /* Pods-Tessdata.preview.xcconfig */;
 			buildSettings = {
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
@@ -787,6 +939,7 @@
 		};
 		DBF25DCB2476D5730008300C /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 85F331D9A60B36E0CFCDF781 /* Pods-Tessdata.release.xcconfig */;
 			buildSettings = {
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
