@@ -187,7 +187,7 @@ extension UtilityView {
 extension UtilityView {
     static let minHessianNumberFormatter: NumberFormatter = {
         let formatter = NumberFormatter()
-        formatter.minimumFractionDigits = 1
+        formatter.maximumFractionDigits = 0
         return formatter
     }()
     
