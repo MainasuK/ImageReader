@@ -8,7 +8,6 @@
 
 import Cocoa
 import SwiftUI
-import OpenCVBridge
 
 @NSApplicationMain
 class AppDelegate: NSObject, NSApplicationDelegate {
@@ -30,9 +29,6 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         window.setFrameAutosaveName("Main Window")
         window.contentView = NSHostingView(rootView: contentView.environmentObject(store))
         window.makeKeyAndOrderFront(nil)
-        
-        let cvMat = CVBMat()
-        print(cvMat.rows())
     }
     
     func applicationDidBecomeActive(_ notification: Notification) {

@@ -9,6 +9,7 @@
 import Cocoa
 import Combine
 import Vision
+import OpenCVBridge
 
 final class Store: ObservableObject {
         
@@ -31,6 +32,9 @@ extension Store {
         var textObservations: [VNRecognizedTextObservation] = []
         var attentionBasedSaliencyImageObservations: [VNSaliencyImageObservation] = []
         var objectnessBasedSaliencyImageObservations: [VNSaliencyImageObservation] = []
+        
+        // opencv relay
+        var surfKeypoints: [OpenCVFeatureDetectionResult] = []
         
         // tesseract relay
         var tesseractWordRecognizeResults: [TesseractWordRecognizeResult] = []
@@ -56,6 +60,14 @@ extension Store {
             didSet { recognizeTextRequestOptionsPublisher.send(recognizeTextRequestOptions) }
         }
         let recognizeTextRequestOptionsPublisher = PassthroughSubject<RecognizeTextRequestOptions, Never>()
+        
+        // MARK: - OpenCV
+        
+        // SURF feature detection
+        var surfOptions = SURFfOptions() {
+            didSet { surfOptionsPublisher.send(surfOptions) }
+        }
+        let surfOptionsPublisher = PassthroughSubject<SURFfOptions, Never>()
         
         // MARK: - Tesseract
         var tesseractOptions = TesseractOptions() {

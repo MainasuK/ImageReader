@@ -63,6 +63,7 @@ final class TesseractService: ObservableObject {
         
         let throttledImagePublisher = imagePublisher
             .throttle(for: .milliseconds(500), scheduler: DispatchQueue.main, latest: true)
+            .share()
             
         Publishers
             .CombineLatest3(

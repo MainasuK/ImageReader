@@ -185,10 +185,32 @@ extension UtilityView {
 
 // MARK: - OpenCV
 extension UtilityView {
+    static let minHessianNumberFormatter: NumberFormatter = {
+        let formatter = NumberFormatter()
+        formatter.minimumFractionDigits = 1
+        return formatter
+    }()
+    
     var openCVUtilityView: some View {
-        VStack {
+        VStack(alignment: .leading) {
+            openCVSURFFeatureDetectionUtilityView
+            Divider()
             Spacer()
         }
+    }
+    
+    var openCVSURFFeatureDetectionUtilityView: some View {
+        VStack(alignment: .leading) {
+            Text("SURF Feature Detection")
+                .font(.caption)
+            GridRow(title: " ") {
+                Toggle("Enabled", isOn: $store.utility.surfOptions.enabled)
+            }
+            GridRow(title: "Min Hessian") {
+                TextField("Min Hessian", value: $store.utility.surfOptions.minHessian, formatter: UtilityView.minHessianNumberFormatter)
+            }
+        }
+        .padding([.leading, .trailing])
     }
 }
 

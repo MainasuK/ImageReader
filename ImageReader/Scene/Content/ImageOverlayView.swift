@@ -6,8 +6,10 @@
 //  Copyright © 2020 MainasuK. All rights reserved.
 //
 
+import Cocoa
 import SwiftUI
 import Vision
+import GameKit
 
 struct ImageOverlayView: View {
     
@@ -16,6 +18,7 @@ struct ImageOverlayView: View {
     var body: some View {
         GeometryReader { proxy in
             self.visionOverlay(proxy: proxy)
+            self.openCVOverlay(proxy: proxy)
             self.tesseractOverlay(proxy: proxy)
         }
     }
@@ -57,17 +60,16 @@ extension ImageOverlayView {
                 }
             }
             // Text Observations
-            ForEach(self.store.content.textObservations, id: \.self) { observation in
-                Path { path in
+            Path { path in
+                for observation in self.store.content.textObservations {
                     path.move(to: CGPoint(x: proxy.size.width * observation.topLeft.x, y: proxy.size.height * (1 - observation.topLeft.y)))
                     path.addLine(to: CGPoint(x: proxy.size.width * observation.topRight.x, y: proxy.size.height * (1 - observation.topRight.y)))
                     path.addLine(to: CGPoint(x: proxy.size.width * observation.bottomRight.x, y: proxy.size.height * (1 - observation.bottomRight.y)))
                     path.addLine(to: CGPoint(x: proxy.size.width * observation.bottomLeft.x, y: proxy.size.height * (1 - observation.bottomLeft.y)))
                     path.closeSubpath()
                 }
-                .stroke(Color.red, lineWidth: 2)
             }
-            
+            .stroke(Color.red, lineWidth: 2)
         }
         .frame(width: proxy.size.width, height: proxy.size.height, alignment: .topLeading)
     }
@@ -101,6 +103,60 @@ extension ImageOverlayView {
         .stroke(Color.yellow, lineWidth: 2)
     }
     
+}
+
+extension ImageOverlayView {
+    private func openCVOverlay(proxy: GeometryProxy) -> some View {
+        ZStack(alignment: .topLeading) {
+            // SURF feature points
+            surfFeaturePointOverlay(in: proxy).drawingGroup()
+        }
+        .frame(width: proxy.size.width, height: proxy.size.height, alignment: .topLeading)
+        .drawingGroup()
+    }
+    
+    private func surfFeaturePointOverlay(in proxy: GeometryProxy) -> some View {
+        let scale = NSScreen.main?.backingScaleFactor ?? 1.0
+        let colorSpace = CGColorSpaceCreateDeviceRGB()
+        let bitmapInfo = CGBitmapInfo(rawValue: CGImageAlphaInfo.premultipliedLast.rawValue)
+        let context = CGContext(data: nil,
+                                width: Int(proxy.size.width * scale),
+                                height: Int(proxy.size.height * scale),
+                                bitsPerComponent: 8,
+                                bytesPerRow: 0,
+                                space: colorSpace,
+                                bitmapInfo: bitmapInfo.rawValue)!
+
+        let r: CGFloat = 3.0
+        context.setLineWidth(1 * scale)
+        for result in self.store.content.surfKeypoints {
+            let seed = UInt64(result.keypoint.response)
+            context.setStrokeColor(NSColor.random(seed: seed).cgColor)
+            context.addEllipse(in:
+                CGRect(
+                    x: result.point.x * proxy.size.width * scale - r,
+                    y: (1 - result.point.y) * proxy.size.height * scale - r,
+                    width: 2 * r,
+                    height: 2 * r
+                )
+            )
+            context.drawPath(using: .stroke)
+        }
+        
+        let cgImage = context.makeImage()!
+        return Image(decorative: cgImage, scale: scale)
+    }
+}
+
+fileprivate extension NSColor {
+    static func random(seed: UInt64) -> NSColor {
+        let rng = GKMersenneTwisterRandomSource(seed: seed)
+        let red =   rng.nextInt(upperBound: 255)
+        let green = rng.nextInt(upperBound: 255)
+        let blue =  rng.nextInt(upperBound: 255)
+        let color = NSColor(red: CGFloat(red) / 255, green: CGFloat(green) / 255, blue: CGFloat(blue) / 255, alpha: 1)
+        return color
+    }
 }
 
 // MARK: - Tesseract

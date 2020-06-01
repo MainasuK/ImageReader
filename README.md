@@ -18,7 +18,8 @@ macOS App for demonstrate image analysis tool like Vision.framework.
 - [ ] Face Detecting
 
 ### OpenCV
-- [ ] SURF Image Matching
+- [x] SURF Feature Detection
+- [ ] Image Matching
 
 ### Tesseract
 - [x] Text Recognization

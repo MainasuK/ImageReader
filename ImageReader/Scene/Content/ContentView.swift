@@ -13,6 +13,7 @@ struct ContentView: View {
 
     @EnvironmentObject var store: Store
     @ObservedObject var visionService = VisionService()
+    @ObservedObject var openCVService = OpenCVService()
     @ObservedObject var tesseractService = TesseractService()
 
     @State var isActive = false
@@ -36,13 +37,15 @@ struct ContentView: View {
         .onAppear {
             // subscribe image
             self.visionService.imageSubscription = self.store.content.imagePublisher.assign(to: \.value, on: self.visionService.image)
+            self.openCVService.imageSubscription = self.store.content.imagePublisher.assign(to: \.value, on: self.openCVService.image)
             self.tesseractService.imageSubscription = self.store.content.imagePublisher.assign(to: \.value, on: self.tesseractService.image)
             
             // subscribe options
             self.visionService.recognizeTextRequestOptionsSubscription = self.store.utility.recognizeTextRequestOptionsPublisher
                 .assign(to: \.value, on: self.visionService.recognizeTextRequestOptions)
+            self.openCVService.surfOptionsSubscription = self.store.utility.surfOptionsPublisher
+                .assign(to: \.value, on: self.openCVService.surfOptions)
             self.tesseractService.isVisionSearchHelperEnabledSubscription = self.store.utility.enableVsionPreProcessingPublisher
-                .print()
                 .assign(to: \.value, on: self.tesseractService.isVisionSearchHelperEnabled)
             self.tesseractService.tesseractOptionsSubscription = self.store.utility.tesseractOptionsPublisher
                 .assign(to: \.value, on: self.tesseractService.tesseractOptions)
@@ -56,6 +59,9 @@ struct ContentView: View {
             // bind objectnessBasedSaliencyImageObservations to store
             self.visionService.objectnessBasedSaliencyImageObservationSubscription = self.visionService.objectnessBasedSaliencyImageObservation
                 .assign(to: \.content.objectnessBasedSaliencyImageObservations, on: self.store)
+            // bind theSURFFeaturePoints to store
+            self.openCVService.theSURFKeypointsSubscription = self.openCVService.theSURFKeypoints
+                .assign(to: \.content.surfKeypoints, on: self.store)
             // bind wordRecognizeResults to store
             self.tesseractService.wordRecognizeResultsSubscription = self.tesseractService.wordRecognizeResults
                 .assign(to: \.content.tesseractWordRecognizeResults, on: self.store)
