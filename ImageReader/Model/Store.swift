@@ -35,6 +35,7 @@ extension Store {
         
         // opencv relay
         var surfKeypoints: [OpenCVFeatureDetectionResult] = []
+        var flannFeatureMatchingResult = OpenCVFeatureMatchingResult()
         
         // tesseract relay
         var tesseractWordRecognizeResults: [TesseractWordRecognizeResult] = []
@@ -63,11 +64,23 @@ extension Store {
         
         // MARK: - OpenCV
         
+        var flannMatchingImage = NSImage() {
+            didSet { flannMatchingImagePublisher.send(flannMatchingImage) }
+        }
+        let flannMatchingImagePublisher = PassthroughSubject<NSImage, Never>()
+
+        
         // SURF feature detection
-        var surfOptions = SURFfOptions() {
+        var surfOptions = SURFOptions() {
             didSet { surfOptionsPublisher.send(surfOptions) }
         }
-        let surfOptionsPublisher = PassthroughSubject<SURFfOptions, Never>()
+        let surfOptionsPublisher = PassthroughSubject<SURFOptions, Never>()
+        
+        // FLANN feature matching
+        var flannOptions = FLANNOptions() {
+            didSet { flannOptionsPublisher.send(flannOptions) }
+        }
+        let flannOptionsPublisher = PassthroughSubject<FLANNOptions, Never>()
         
         // MARK: - Tesseract
         var tesseractOptions = TesseractOptions() {

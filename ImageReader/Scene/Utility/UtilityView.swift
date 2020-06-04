@@ -27,7 +27,9 @@ struct UtilityView: View {
     
     @State var selectTextObservation: VNRecognizedTextObservation?
     @State var showTextObservationPopover = false
-        
+    
+    @State var isFLANNMatchingActive = false
+
     var body: some View {
         VStack {
             // Reader picker
@@ -191,16 +193,24 @@ extension UtilityView {
         return formatter
     }()
     
+    static let ratioThreashNumberFormatter: NumberFormatter = {
+        let formatter = NumberFormatter()
+        formatter.maximumFractionDigits = 1
+        return formatter
+    }()
+    
     var openCVUtilityView: some View {
         VStack(alignment: .leading) {
             openCVSURFFeatureDetectionUtilityView
+            Divider()
+            openCVFLANNFeatureMatchingUtilityView
             Divider()
             Spacer()
         }
     }
     
     var openCVSURFFeatureDetectionUtilityView: some View {
-        VStack(alignment: .leading) {
+        return VStack(alignment: .leading) {
             Text("SURF Feature Detection")
                 .font(.caption)
             GridRow(title: " ") {
@@ -211,6 +221,61 @@ extension UtilityView {
             }
         }
         .padding([.leading, .trailing])
+    }
+    
+    var openCVFLANNFeatureMatchingUtilityView: some View {
+        let flannMatchingDropDelegate = ImageDropDelegate(image: $store.utility.flannMatchingImage, isActive: $isFLANNMatchingActive)
+        
+        return VStack(alignment: .leading) {
+            Text("FLANN Feature Maching")
+                .font(.caption)
+            GridRow(title: " ") {
+                Toggle("Enabled", isOn: $store.utility.flannOptions.enabled)
+            }
+            GridRow(title: "Min Hessian") {
+                TextField("Min Hessian", value: $store.utility.flannOptions.minHessian, formatter: UtilityView.minHessianNumberFormatter)
+            }
+            GridRow(title: "Lowe's ratio") {
+                TextField("Lowe's ratio", value: $store.utility.flannOptions.ratioThresh, formatter: UtilityView.ratioThreashNumberFormatter)
+            }
+            GridRow(title: " ") {
+                Image(nsImage: store.utility.flannMatchingImage)
+                    .resizable()
+                    .aspectRatio(contentMode: .fit)
+                    //.overlay(ImageOverlayView())
+                    .background(Text("Drag and drop image here."))
+                    .frame(maxWidth: .infinity, maxHeight: 200)
+                    .background(isFLANNMatchingActive ? Color.green : Color.gray)
+                    .onDrop(of: ImageDropDelegate.itemsType, delegate: flannMatchingDropDelegate)
+            }
+            GridRow(title: "Good Match") {
+                HStack {
+                    Text("\(store.content.flannFeatureMatchingResult.goodMatchCount)")
+                    if store.content.flannFeatureMatchingResult.goodMatchCount < 4 {
+                        Text("< 4, skipped")
+                    }
+                }
+            }
+            GridRow(title: "Determinant") {
+                Text("\(store.content.flannFeatureMatchingResult.determinant)")
+            }.padding(.top, 4)
+            GridRow(title: "Preview", alignment: .center) {
+                Button(action: {
+                    guard let image = self.store.content.flannFeatureMatchingResult.previewImage else { return }
+                    let hostingView = NSHostingView(rootView: self.createPreviewView(preview: image))
+                    (NSApp.delegate as? AppDelegate)?.showWindow(with: hostingView)
+                }, label: {
+                    Text("Preview")
+                }).disabled(store.content.flannFeatureMatchingResult.previewImage == nil)
+            }
+        }
+        .padding([.leading, .trailing])
+    }
+    
+    private func createPreviewView(preview image: NSImage) -> some View {
+        Image(nsImage: image)
+            .resizable()
+            .aspectRatio(contentMode: .fit)
     }
 }
 
@@ -293,15 +358,17 @@ struct UtilityView_Previews: PreviewProvider {
 struct GridRow<Content>: View where Content: View {
     
     let title: String
+    let alignment: VerticalAlignment
     var content: Content
     
-    init(title: String, @ViewBuilder content: () -> Content) {
+    init(title: String, alignment: VerticalAlignment = .firstTextBaseline, @ViewBuilder content: () -> Content) {
         self.title = title
+        self.alignment = alignment
         self.content = content()
     }
 
     var body: some View {
-        HStack(alignment: .firstTextBaseline) {
+        HStack(alignment: alignment) {
             Text(title)
                 .font(.gridSubtitle)
                 .frame(width: UtilityView.grideWidth, alignment: .trailing)

@@ -38,6 +38,7 @@ struct ContentView: View {
             // subscribe image
             self.visionService.imageSubscription = self.store.content.imagePublisher.assign(to: \.value, on: self.visionService.image)
             self.openCVService.imageSubscription = self.store.content.imagePublisher.assign(to: \.value, on: self.openCVService.image)
+            self.openCVService.flannMatchingImageSubscription = self.store.utility.flannMatchingImagePublisher.print().assign(to: \.value, on: self.openCVService.flannMatchingImage)
             self.tesseractService.imageSubscription = self.store.content.imagePublisher.assign(to: \.value, on: self.tesseractService.image)
             
             // subscribe options
@@ -45,6 +46,8 @@ struct ContentView: View {
                 .assign(to: \.value, on: self.visionService.recognizeTextRequestOptions)
             self.openCVService.surfOptionsSubscription = self.store.utility.surfOptionsPublisher
                 .assign(to: \.value, on: self.openCVService.surfOptions)
+            self.openCVService.flannOptionsSubscription = self.store.utility.flannOptionsPublisher
+                .assign(to: \.value, on: self.openCVService.flannOptions)
             self.tesseractService.isVisionSearchHelperEnabledSubscription = self.store.utility.enableVsionPreProcessingPublisher
                 .assign(to: \.value, on: self.tesseractService.isVisionSearchHelperEnabled)
             self.tesseractService.tesseractOptionsSubscription = self.store.utility.tesseractOptionsPublisher
@@ -62,6 +65,9 @@ struct ContentView: View {
             // bind theSURFFeaturePoints to store
             self.openCVService.theSURFKeypointsSubscription = self.openCVService.theSURFKeypoints
                 .assign(to: \.content.surfKeypoints, on: self.store)
+            // bind flannMacthingResult to store
+            self.openCVService.flannMacthingResultSubscription = self.openCVService.flannMacthingResult
+                .assign(to: \.content.flannFeatureMatchingResult, on: self.store)
             // bind wordRecognizeResults to store
             self.tesseractService.wordRecognizeResultsSubscription = self.tesseractService.wordRecognizeResults
                 .assign(to: \.content.tesseractWordRecognizeResults, on: self.store)

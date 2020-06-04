@@ -1,5 +1,5 @@
 PODS:
-  - OpenCVBridge (0.0.1)
+  - OpenCVBridge (0.0.3)
 
 DEPENDENCIES:
   - OpenCVBridge (from `https://github.com/MainasuK/OpenCVBridge.git`)
@@ -10,11 +10,11 @@ EXTERNAL SOURCES:
 
 CHECKOUT OPTIONS:
   OpenCVBridge:
-    :commit: a418663a3c9d90cfd0ee034e96428cd080ad5f40
+    :commit: cbfec9223906b8053cc8d8fd2469b6338b29041e
     :git: https://github.com/MainasuK/OpenCVBridge.git
 
 SPEC CHECKSUMS:
-  OpenCVBridge: 68cdfc9ad5c564251fcb00ecc82e1efd2f216fd6
+  OpenCVBridge: c12b6bfb0ffa65eaf40cc4226d71137262a7f769
 
 PODFILE CHECKSUM: 416020d0b0f3bae06aef3acf3c5db49a0906eec5
 

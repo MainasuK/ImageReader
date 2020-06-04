@@ -26,6 +26,7 @@
 		DB372F21247358C700E24890 /* liblept.5.dylib in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = DB372EDB2471A7BF00E24890 /* liblept.5.dylib */; settings = {ATTRIBUTES = (CodeSignOnCopy, ); }; };
 		DB39F852248554AF005F9614 /* TesseractWordRecognizeResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB39F851248554AF005F9614 /* TesseractWordRecognizeResult.swift */; };
 		DB39F854248554C5005F9614 /* OpenCVFeatureDetectionResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB39F853248554C5005F9614 /* OpenCVFeatureDetectionResult.swift */; };
+		DB39F8562485D1C6005F9614 /* OpenCVFeatureMatchingResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB39F8552485D1C6005F9614 /* OpenCVFeatureMatchingResult.swift */; };
 		DB49110424757BF6004DAC55 /* libtiff.5.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = DB49110324757BF6004DAC55 /* libtiff.5.dylib */; };
 		DB49110524757BF6004DAC55 /* libtiff.5.dylib in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = DB49110324757BF6004DAC55 /* libtiff.5.dylib */; settings = {ATTRIBUTES = (CodeSignOnCopy, ); }; };
 		DB49110724757C75004DAC55 /* libwebpmux.3.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = DB49110624757C75004DAC55 /* libwebpmux.3.dylib */; };
@@ -117,6 +118,7 @@
 		DB372EDE2471A7D600E24890 /* libtesseract.4.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libtesseract.4.dylib; path = ../../../../usr/local/Cellar/tesseract/4.1.1/lib/libtesseract.4.dylib; sourceTree = "<group>"; };
 		DB39F851248554AF005F9614 /* TesseractWordRecognizeResult.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TesseractWordRecognizeResult.swift; sourceTree = "<group>"; };
 		DB39F853248554C5005F9614 /* OpenCVFeatureDetectionResult.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OpenCVFeatureDetectionResult.swift; sourceTree = "<group>"; };
+		DB39F8552485D1C6005F9614 /* OpenCVFeatureMatchingResult.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OpenCVFeatureMatchingResult.swift; sourceTree = "<group>"; };
 		DB49110324757BF6004DAC55 /* libtiff.5.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libtiff.5.dylib; path = ../../../../usr/local/Cellar/libtiff/4.1.0/lib/libtiff.5.dylib; sourceTree = "<group>"; };
 		DB49110624757C75004DAC55 /* libwebpmux.3.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libwebpmux.3.dylib; path = ../../../../usr/local/Cellar/webp/1.1.0/lib/libwebpmux.3.dylib; sourceTree = "<group>"; };
 		DB49110924757D12004DAC55 /* libpng16.16.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libpng16.16.dylib; path = ../../../../usr/local/Cellar/libpng/1.6.37/lib/libpng16.16.dylib; sourceTree = "<group>"; };
@@ -296,6 +298,7 @@
 			children = (
 				DB34AEDB246E0D9900C9D3CF /* Store.swift */,
 				DB39F853248554C5005F9614 /* OpenCVFeatureDetectionResult.swift */,
+				DB39F8552485D1C6005F9614 /* OpenCVFeatureMatchingResult.swift */,
 				DB39F851248554AF005F9614 /* TesseractWordRecognizeResult.swift */,
 			);
 			path = Model;
@@ -511,6 +514,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				DBCD1A36248477360033830C /* OpenCVService.swift in Sources */,
+				DB39F8562485D1C6005F9614 /* OpenCVFeatureMatchingResult.swift in Sources */,
 				DB34AEDC246E0D9900C9D3CF /* Store.swift in Sources */,
 				DB710F7F246F614A0061EF2C /* ImageOverlayView.swift in Sources */,
 				DB710F75246F5E750061EF2C /* VisionService.swift in Sources */,

@@ -105,11 +105,12 @@ extension ImageOverlayView {
     
 }
 
+// MARK: - OpenCV
 extension ImageOverlayView {
     private func openCVOverlay(proxy: GeometryProxy) -> some View {
         ZStack(alignment: .topLeading) {
             // SURF feature points
-            surfFeaturePointOverlay(in: proxy).drawingGroup()
+            surfFeaturePointOverlay(in: proxy)
         }
         .frame(width: proxy.size.width, height: proxy.size.height, alignment: .topLeading)
         .drawingGroup()
