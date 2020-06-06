@@ -2,7 +2,6 @@
 
 macOS App for demonstrate image analysis tool like Vision.framework.
 
-
 ## Feature
 
 ### Vision.framework
@@ -10,18 +9,26 @@ macOS App for demonstrate image analysis tool like Vision.framework.
 - [ ] Object Detecting
 - [ ] Face Detecting
 - [ ] Feature Print
-- [ ] Saliency
+- [x] Saliency
+  - [x] Attention Based
+  - [x] Objectness Based
 
 ### CoreImage.framework
 - [ ] Object Detecting
 - [ ] Face Detecting
 
 ### OpenCV
-- [ ] SURF Image Matching
+- [x] SURF Feature Detection
+- [x] FLANN based Image Matching
 
 ### Tesseract
-- [ ] Text Recognization
+- [x] Text Recognization
 
+
+## Setup
+ImageReader using multiple framework to operate image. Please read the reference dependencies README to setup building environment.
+
+- [SwiftTesseract](https://github.com/MainasuK/SwiftTesseract#setup): Setup Tesseract installation.
 
 ## Usage
 
@@ -29,4 +36,10 @@ This app is still under developing. Please build from source code via Xcode.app.
 
 
 ## Demo
-![snapstho](./Press/snapshot.png)
+![Text Recognize](./Press/snapshot.png)
+
+![Image Saliency](./Press/snapshot-2.png)
+> Photo from Unsplash @zis_view 
+
+![Image Matching](./Press/snapshot-3.png)
+> Photo by Mak on Unsplash
