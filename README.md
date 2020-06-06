@@ -30,9 +30,8 @@ ImageReader using multiple framework to operate image. Please read the reference
 
 - [SwiftTesseract](https://github.com/MainasuK/SwiftTesseract#setup): Setup Tesseract installation.
 
-## Usage
-
-This app is still under developing. Please build from source code via Xcode.app.
+## Release
+You can download notarized app release from [here](https://github.com/MainasuK/ImageReader/releases).
 
 
 ## Demo
