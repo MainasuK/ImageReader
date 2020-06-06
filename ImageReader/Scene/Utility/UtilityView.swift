@@ -305,8 +305,16 @@ extension UtilityView {
             GridRow(title: " ") {
                 Toggle("Vision Pre-Processing Enabled", isOn: $store.utility.enableVsionPreProcessing)
             }
-            GridRow(title: " ") {
-                Toggle("Custom Enabled", isOn: $store.utility.tesseractOptions.isCustomEnabled)
+            //GridRow(title: " ") {
+            //    Toggle("Custom Enabled", isOn: $store.utility.tesseractOptions.isCustomEnabled)
+            //}
+            GridRow(title: "Language") {
+                HStack {
+                    Toggle("eng", isOn: $store.utility.tesseractOptions.engEnabled)
+                    Toggle("chi_sim", isOn: $store.utility.tesseractOptions.chisimEnabled)
+                    Toggle("NotoSans (best only)", isOn: $store.utility.tesseractOptions.bestNotoSansEnabled)
+                        .disabled(store.utility.tesseractOptions.mode != .best)
+                }
             }
             GridRow(title: "Mode") {
                 Picker(selection: $store.utility.tesseractOptions.mode, label: EmptyView()) {

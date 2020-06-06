@@ -18,7 +18,10 @@ struct TesseractOptions {
     var pageSegmentMode = Tesseract.PageSegMode.SINGLE_LINE // that could better when enable vision pre-processing
     var pageIteratorLevel = Tesseract.PageIteratorLevel.textline
     
-    var isCustomEnabled = false
+    // var isCustomEnabled = false
+    var engEnabled = true
+    var chisimEnabled = false
+    var bestNotoSansEnabled = false
     
     enum Mode: CaseIterable {
         case fast
@@ -160,7 +163,19 @@ final class TesseractService: ObservableObject {
                         }()
 
                         let tesseract = Tesseract()
-                        let language: Tesseract.Language = options.mode == .best && options.isCustomEnabled ? .custom("NotoSans_SemiLight") : .custom("chi_sim")
+                        let language: Tesseract.Language = {
+                            var lang: [String] = []
+                            if options.engEnabled {
+                                lang.append("eng")
+                            }
+                            if options.chisimEnabled {
+                                lang.append("chi_sim")
+                            }
+                            if options.mode == .best, options.bestNotoSansEnabled {
+                                lang.append("NotoSans_SemiLight")
+                            }
+                            return lang.isEmpty ? .english : .custom(lang.joined(separator: "+"))
+                        }()
                         try tesseract.init3(datapath: datapath, language: language)
                         tesseract.setPageSegMode(mode: options.pageSegmentMode)
                         try tesseract.setImage2(nsImage: image)
