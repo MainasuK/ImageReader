@@ -8,7 +8,7 @@
 
 import SwiftUI
 import Vision
-import SwiftTesseract
+// import SwiftTesseract
 
 struct ListPopoverBoundsPreferenceKey: PreferenceKey {
     typealias Value = [UUID:Anchor<CGRect>]
@@ -316,27 +316,27 @@ extension UtilityView {
                         .disabled(store.utility.tesseractOptions.mode != .best)
                 }
             }
-            GridRow(title: "Mode") {
-                Picker(selection: $store.utility.tesseractOptions.mode, label: EmptyView()) {
-                    ForEach(TesseractOptions.Mode.allCases, id: \.self) { mode in
-                        Text(mode.text)
-                    }
-                }
-            }
-            GridRow(title: "Segment") {
-                Picker(selection: $store.utility.tesseractOptions.pageSegmentMode, label: EmptyView()) {
-                    ForEach(Tesseract.PageSegMode.allCases, id: \.self) { mode in
-                        Text(mode.text)
-                    }
-                }
-            }
-            GridRow(title: "Level") {
-                Picker(selection: $store.utility.tesseractOptions.pageIteratorLevel, label: EmptyView()) {
-                    ForEach(Tesseract.PageIteratorLevel.allCases, id: \.self) { level in
-                        Text(level.text)
-                    }
-                }
-            }
+//            GridRow(title: "Mode") {
+//                Picker(selection: $store.utility.tesseractOptions.mode, label: EmptyView()) {
+//                    ForEach(TesseractOptions.Mode.allCases, id: \.self) { mode in
+//                        Text(mode.text)
+//                    }
+//                }
+//            }
+//            GridRow(title: "Segment") {
+//                Picker(selection: $store.utility.tesseractOptions.pageSegmentMode, label: EmptyView()) {
+//                    ForEach(Tesseract.PageSegMode.allCases, id: \.self) { mode in
+//                        Text(mode.text)
+//                    }
+//                }
+//            }
+//            GridRow(title: "Level") {
+//                Picker(selection: $store.utility.tesseractOptions.pageIteratorLevel, label: EmptyView()) {
+//                    ForEach(Tesseract.PageIteratorLevel.allCases, id: \.self) { level in
+//                        Text(level.text)
+//                    }
+//                }
+//            }
         }
         .padding([.leading, .trailing])
     }

@@ -2,20 +2,15 @@ PODS:
   - OpenCVBridge (0.0.3)
 
 DEPENDENCIES:
-  - OpenCVBridge (from `https://github.com/MainasuK/OpenCVBridge.git`)
+  - OpenCVBridge (from `../OpenCVBridge`)
 
 EXTERNAL SOURCES:
   OpenCVBridge:
-    :git: https://github.com/MainasuK/OpenCVBridge.git
-
-CHECKOUT OPTIONS:
-  OpenCVBridge:
-    :commit: cbfec9223906b8053cc8d8fd2469b6338b29041e
-    :git: https://github.com/MainasuK/OpenCVBridge.git
+    :path: "../OpenCVBridge"
 
 SPEC CHECKSUMS:
   OpenCVBridge: c12b6bfb0ffa65eaf40cc4226d71137262a7f769
 
-PODFILE CHECKSUM: 416020d0b0f3bae06aef3acf3c5db49a0906eec5
+PODFILE CHECKSUM: b0386c11565e65cda2e366069769f6cdce72331e
 
-COCOAPODS: 1.9.1
+COCOAPODS: 1.9.3

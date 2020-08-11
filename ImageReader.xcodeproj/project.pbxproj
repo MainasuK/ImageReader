@@ -19,48 +19,18 @@
 		DB34AEB9246AF9FE00C9D3CF /* ImageDropDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB34AEB8246AF9FE00C9D3CF /* ImageDropDelegate.swift */; };
 		DB34AEBB246B0B7B00C9D3CF /* UtilityView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB34AEBA246B0B7B00C9D3CF /* UtilityView.swift */; };
 		DB34AEDC246E0D9900C9D3CF /* Store.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB34AEDB246E0D9900C9D3CF /* Store.swift */; };
-		DB372EE22471AB8900E24890 /* SwiftTesseract in Frameworks */ = {isa = PBXBuildFile; productRef = DB372EE12471AB8900E24890 /* SwiftTesseract */; };
-		DB372F1E247358BE00E24890 /* libtesseract.4.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = DB372EDE2471A7D600E24890 /* libtesseract.4.dylib */; };
-		DB372F1F247358BE00E24890 /* libtesseract.4.dylib in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = DB372EDE2471A7D600E24890 /* libtesseract.4.dylib */; settings = {ATTRIBUTES = (CodeSignOnCopy, ); }; };
-		DB372F20247358C700E24890 /* liblept.5.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = DB372EDB2471A7BF00E24890 /* liblept.5.dylib */; };
-		DB372F21247358C700E24890 /* liblept.5.dylib in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = DB372EDB2471A7BF00E24890 /* liblept.5.dylib */; settings = {ATTRIBUTES = (CodeSignOnCopy, ); }; };
 		DB39F852248554AF005F9614 /* TesseractWordRecognizeResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB39F851248554AF005F9614 /* TesseractWordRecognizeResult.swift */; };
 		DB39F854248554C5005F9614 /* OpenCVFeatureDetectionResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB39F853248554C5005F9614 /* OpenCVFeatureDetectionResult.swift */; };
 		DB39F8562485D1C6005F9614 /* OpenCVFeatureMatchingResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB39F8552485D1C6005F9614 /* OpenCVFeatureMatchingResult.swift */; };
-		DB49110424757BF6004DAC55 /* libtiff.5.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = DB49110324757BF6004DAC55 /* libtiff.5.dylib */; };
-		DB49110524757BF6004DAC55 /* libtiff.5.dylib in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = DB49110324757BF6004DAC55 /* libtiff.5.dylib */; settings = {ATTRIBUTES = (CodeSignOnCopy, ); }; };
-		DB49110724757C75004DAC55 /* libwebpmux.3.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = DB49110624757C75004DAC55 /* libwebpmux.3.dylib */; };
-		DB49110824757C75004DAC55 /* libwebpmux.3.dylib in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = DB49110624757C75004DAC55 /* libwebpmux.3.dylib */; settings = {ATTRIBUTES = (CodeSignOnCopy, ); }; };
-		DB49110A24757D12004DAC55 /* libpng16.16.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = DB49110924757D12004DAC55 /* libpng16.16.dylib */; };
-		DB49110B24757D12004DAC55 /* libpng16.16.dylib in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = DB49110924757D12004DAC55 /* libpng16.16.dylib */; settings = {ATTRIBUTES = (CodeSignOnCopy, ); }; };
-		DB49110D24757D3E004DAC55 /* libjpeg.9.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = DB49110C24757D3E004DAC55 /* libjpeg.9.dylib */; };
-		DB49110E24757D3E004DAC55 /* libjpeg.9.dylib in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = DB49110C24757D3E004DAC55 /* libjpeg.9.dylib */; settings = {ATTRIBUTES = (CodeSignOnCopy, ); }; };
-		DB49111224757EF1004DAC55 /* libgif.7.2.0.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = DB49110F24757D5A004DAC55 /* libgif.7.2.0.dylib */; };
-		DB49111324757EF1004DAC55 /* libgif.7.2.0.dylib in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = DB49110F24757D5A004DAC55 /* libgif.7.2.0.dylib */; settings = {ATTRIBUTES = (CodeSignOnCopy, ); }; };
-		DB491115247593A1004DAC55 /* libwebp.7.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = DB491114247593A1004DAC55 /* libwebp.7.dylib */; };
-		DB491116247593A1004DAC55 /* libwebp.7.dylib in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = DB491114247593A1004DAC55 /* libwebp.7.dylib */; settings = {ATTRIBUTES = (CodeSignOnCopy, ); }; };
-		DB491118247593C0004DAC55 /* libopenjp2.2.3.1.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = DB491117247593C0004DAC55 /* libopenjp2.2.3.1.dylib */; };
-		DB491119247593C0004DAC55 /* libopenjp2.2.3.1.dylib in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = DB491117247593C0004DAC55 /* libopenjp2.2.3.1.dylib */; settings = {ATTRIBUTES = (CodeSignOnCopy, ); }; };
 		DB710F75246F5E750061EF2C /* VisionService.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB710F74246F5E750061EF2C /* VisionService.swift */; };
 		DB710F7F246F614A0061EF2C /* ImageOverlayView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB710F7E246F614A0061EF2C /* ImageOverlayView.swift */; };
 		DB710F81246FCB1A0061EF2C /* Font.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB710F80246FCB1A0061EF2C /* Font.swift */; };
 		DBCD1A36248477360033830C /* OpenCVService.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBCD1A35248477360033830C /* OpenCVService.swift */; };
-		DBF25DD32476D6310008300C /* Tessdata.bundle in CopyFiles */ = {isa = PBXBuildFile; fileRef = DBF25DC62476D5730008300C /* Tessdata.bundle */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		DBF25DD52476D6C10008300C /* Tessdata.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBF25DD42476D6C10008300C /* Tessdata.swift */; };
 		DBF25DD82476D7650008300C /* TesseractService.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB49111A2476BF3A004DAC55 /* TesseractService.swift */; };
 		DBF25DE22478DAC20008300C /* best in Resources */ = {isa = PBXBuildFile; fileRef = DBF25DE12478DAC20008300C /* best */; };
 		DBF25DE42478DAD40008300C /* fast in Resources */ = {isa = PBXBuildFile; fileRef = DBF25DE32478DAD40008300C /* fast */; };
 /* End PBXBuildFile section */
-
-/* Begin PBXContainerItemProxy section */
-		DBF25DCF2476D5CA0008300C /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = DB34AE8C246AE75A00C9D3CF /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = DBF25DC52476D5730008300C;
-			remoteInfo = Tessdata;
-		};
-/* End PBXContainerItemProxy section */
 
 /* Begin PBXCopyFilesBuildPhase section */
 		DB34AEB7246AF5A400C9D3CF /* Embed Frameworks */ = {
@@ -69,28 +39,9 @@
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
-				DB49110524757BF6004DAC55 /* libtiff.5.dylib in Embed Frameworks */,
-				DB491116247593A1004DAC55 /* libwebp.7.dylib in Embed Frameworks */,
-				DB49110824757C75004DAC55 /* libwebpmux.3.dylib in Embed Frameworks */,
-				DB491119247593C0004DAC55 /* libopenjp2.2.3.1.dylib in Embed Frameworks */,
 				DB34AEB6246AF5A400C9D3CF /* CommonOSLogDynamic in Embed Frameworks */,
-				DB49110E24757D3E004DAC55 /* libjpeg.9.dylib in Embed Frameworks */,
-				DB49111324757EF1004DAC55 /* libgif.7.2.0.dylib in Embed Frameworks */,
-				DB49110B24757D12004DAC55 /* libpng16.16.dylib in Embed Frameworks */,
-				DB372F1F247358BE00E24890 /* libtesseract.4.dylib in Embed Frameworks */,
-				DB372F21247358C700E24890 /* liblept.5.dylib in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		DBF25DD22476D6220008300C /* CopyFiles */ = {
-			isa = PBXCopyFilesBuildPhase;
-			buildActionMask = 2147483647;
-			dstPath = "";
-			dstSubfolderSpec = 7;
-			files = (
-				DBF25DD32476D6310008300C /* Tessdata.bundle in CopyFiles */,
-			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXCopyFilesBuildPhase section */
@@ -114,20 +65,10 @@
 		DB34AEB8246AF9FE00C9D3CF /* ImageDropDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageDropDelegate.swift; sourceTree = "<group>"; };
 		DB34AEBA246B0B7B00C9D3CF /* UtilityView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UtilityView.swift; sourceTree = "<group>"; };
 		DB34AEDB246E0D9900C9D3CF /* Store.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Store.swift; sourceTree = "<group>"; };
-		DB372EDB2471A7BF00E24890 /* liblept.5.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = liblept.5.dylib; path = ../../../../usr/local/Cellar/leptonica/1.79.0/lib/liblept.5.dylib; sourceTree = "<group>"; };
-		DB372EDE2471A7D600E24890 /* libtesseract.4.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libtesseract.4.dylib; path = ../../../../usr/local/Cellar/tesseract/4.1.1/lib/libtesseract.4.dylib; sourceTree = "<group>"; };
 		DB39F851248554AF005F9614 /* TesseractWordRecognizeResult.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TesseractWordRecognizeResult.swift; sourceTree = "<group>"; };
 		DB39F853248554C5005F9614 /* OpenCVFeatureDetectionResult.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OpenCVFeatureDetectionResult.swift; sourceTree = "<group>"; };
 		DB39F8552485D1C6005F9614 /* OpenCVFeatureMatchingResult.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OpenCVFeatureMatchingResult.swift; sourceTree = "<group>"; };
-		DB49110324757BF6004DAC55 /* libtiff.5.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libtiff.5.dylib; path = ../../../../usr/local/Cellar/libtiff/4.1.0/lib/libtiff.5.dylib; sourceTree = "<group>"; };
-		DB49110624757C75004DAC55 /* libwebpmux.3.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libwebpmux.3.dylib; path = ../../../../usr/local/Cellar/webp/1.1.0/lib/libwebpmux.3.dylib; sourceTree = "<group>"; };
-		DB49110924757D12004DAC55 /* libpng16.16.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libpng16.16.dylib; path = ../../../../usr/local/Cellar/libpng/1.6.37/lib/libpng16.16.dylib; sourceTree = "<group>"; };
-		DB49110C24757D3E004DAC55 /* libjpeg.9.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libjpeg.9.dylib; path = ../../../../usr/local/Cellar/jpeg/9d/lib/libjpeg.9.dylib; sourceTree = "<group>"; };
-		DB49110F24757D5A004DAC55 /* libgif.7.2.0.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libgif.7.2.0.dylib; path = ../../../../usr/local/Cellar/giflib/5.2.1/lib/libgif.7.2.0.dylib; sourceTree = "<group>"; };
-		DB491114247593A1004DAC55 /* libwebp.7.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libwebp.7.dylib; path = ../../../../usr/local/Cellar/webp/1.1.0/lib/libwebp.7.dylib; sourceTree = "<group>"; };
-		DB491117247593C0004DAC55 /* libopenjp2.2.3.1.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libopenjp2.2.3.1.dylib; path = ../../../../usr/local/Cellar/openjpeg/2.3.1/lib/libopenjp2.2.3.1.dylib; sourceTree = "<group>"; };
 		DB49111A2476BF3A004DAC55 /* TesseractService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TesseractService.swift; sourceTree = "<group>"; };
-		DB507EE32470B743007B555F /* SwiftTesseract */ = {isa = PBXFileReference; lastKnownFileType = folder; name = SwiftTesseract; path = ../SwiftTesseract; sourceTree = "<group>"; };
 		DB710F74246F5E750061EF2C /* VisionService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VisionService.swift; sourceTree = "<group>"; };
 		DB710F7E246F614A0061EF2C /* ImageOverlayView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageOverlayView.swift; sourceTree = "<group>"; };
 		DB710F80246FCB1A0061EF2C /* Font.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Font.swift; sourceTree = "<group>"; };
@@ -145,17 +86,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				DB372F20247358C700E24890 /* liblept.5.dylib in Frameworks */,
-				DB372F1E247358BE00E24890 /* libtesseract.4.dylib in Frameworks */,
-				DB491118247593C0004DAC55 /* libopenjp2.2.3.1.dylib in Frameworks */,
-				DB49110A24757D12004DAC55 /* libpng16.16.dylib in Frameworks */,
-				DB49110424757BF6004DAC55 /* libtiff.5.dylib in Frameworks */,
-				DB49111224757EF1004DAC55 /* libgif.7.2.0.dylib in Frameworks */,
-				DB491115247593A1004DAC55 /* libwebp.7.dylib in Frameworks */,
 				DB34AEB5246AF5A400C9D3CF /* CommonOSLogDynamic in Frameworks */,
-				DB49110D24757D3E004DAC55 /* libjpeg.9.dylib in Frameworks */,
-				DB49110724757C75004DAC55 /* libwebpmux.3.dylib in Frameworks */,
-				DB372EE22471AB8900E24890 /* SwiftTesseract in Frameworks */,
 				C48CA985CEC7E3046FD6B68F /* Pods_ImageReader.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -187,7 +118,6 @@
 		DB34AE8B246AE75A00C9D3CF = {
 			isa = PBXGroup;
 			children = (
-				DB507EE32470B743007B555F /* SwiftTesseract */,
 				DB34AE96246AE75A00C9D3CF /* ImageReader */,
 				DBF25DC72476D5730008300C /* Tessdata */,
 				DB34AE95246AE75A00C9D3CF /* Products */,
@@ -230,15 +160,6 @@
 		DB34AEB3246AF5A400C9D3CF /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				DB491117247593C0004DAC55 /* libopenjp2.2.3.1.dylib */,
-				DB491114247593A1004DAC55 /* libwebp.7.dylib */,
-				DB49110F24757D5A004DAC55 /* libgif.7.2.0.dylib */,
-				DB49110C24757D3E004DAC55 /* libjpeg.9.dylib */,
-				DB49110924757D12004DAC55 /* libpng16.16.dylib */,
-				DB49110624757C75004DAC55 /* libwebpmux.3.dylib */,
-				DB49110324757BF6004DAC55 /* libtiff.5.dylib */,
-				DB372EDE2471A7D600E24890 /* libtesseract.4.dylib */,
-				DB372EDB2471A7BF00E24890 /* liblept.5.dylib */,
 				3B406EDB25AD38286AD11036 /* Pods_ImageReader.framework */,
 				48302519BF32C3DE03BB05C0 /* Pods_Tessdata.framework */,
 			);
@@ -328,18 +249,15 @@
 				DB34AE92246AE75A00C9D3CF /* Resources */,
 				DB34AEB7246AF5A400C9D3CF /* Embed Frameworks */,
 				DB372F132472005D00E24890 /* ShellScript */,
-				DBF25DD22476D6220008300C /* CopyFiles */,
 				1946DD6C7E87176543AC3F3F /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
 			dependencies = (
-				DBF25DD02476D5CA0008300C /* PBXTargetDependency */,
 			);
 			name = ImageReader;
 			packageProductDependencies = (
 				DB34AEB4246AF5A400C9D3CF /* CommonOSLogDynamic */,
-				DB372EE12471AB8900E24890 /* SwiftTesseract */,
 			);
 			productName = ImageReader;
 			productReference = DB34AE94246AE75A00C9D3CF /* ImageReader.app */;
@@ -393,7 +311,6 @@
 			mainGroup = DB34AE8B246AE75A00C9D3CF;
 			packageReferences = (
 				DB34AEAA246AF18500C9D3CF /* XCRemoteSwiftPackageReference "CommonOSLog" */,
-				DB372ED124719C0C00E24890 /* XCRemoteSwiftPackageReference "SwiftTesseract" */,
 			);
 			productRefGroup = DB34AE95246AE75A00C9D3CF /* Products */;
 			projectDirPath = "";
@@ -482,7 +399,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "set -ex\nswift ./Scripts/link.swift\n";
+			shellScript = "set -ex\n# swift ./Scripts/link.swift\n";
 		};
 		E42CE15AC994B7324CB67048 /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
@@ -538,14 +455,6 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
-
-/* Begin PBXTargetDependency section */
-		DBF25DD02476D5CA0008300C /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = DBF25DC52476D5730008300C /* Tessdata */;
-			targetProxy = DBF25DCF2476D5CA0008300C /* PBXContainerItemProxy */;
-		};
-/* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
 		DB34AEA0246AE75D00C9D3CF /* Main.storyboard */ = {
@@ -676,12 +585,12 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 88AF4F4A852C1803F0726AB7 /* Pods-ImageReader.debug.xcconfig */;
 			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = ImageReader/ImageReader.entitlements;
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
+				CURRENT_PROJECT_VERSION = 2;
 				DEVELOPMENT_ASSET_PATHS = "\"ImageReader/Preview Content\"";
 				DEVELOPMENT_TEAM = A8K92XFF77;
 				ENABLE_HARDENED_RUNTIME = YES;
@@ -690,17 +599,6 @@
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/../Frameworks",
-				);
-				LIBRARY_SEARCH_PATHS = (
-					"$(inherited)",
-					/usr/local/Cellar/tesseract/4.1.1/lib,
-					/usr/local/Cellar/leptonica/1.79.0/lib,
-					/usr/local/Cellar/libtiff/4.1.0/lib,
-					/usr/local/Cellar/webp/1.1.0/lib,
-					/usr/local/Cellar/libpng/1.6.37/lib,
-					/usr/local/Cellar/jpeg/9d/lib,
-					/usr/local/Cellar/giflib/5.2.1/lib,
-					/usr/local/Cellar/openjpeg/2.3.1/lib,
 				);
 				MACOSX_DEPLOYMENT_TARGET = 10.15;
 				MARKETING_VERSION = 1.0.0;
@@ -714,12 +612,12 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = EB4EE5E66F636F707FAE80DA /* Pods-ImageReader.release.xcconfig */;
 			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = ImageReader/ImageReader.entitlements;
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
+				CURRENT_PROJECT_VERSION = 2;
 				DEVELOPMENT_ASSET_PATHS = "\"ImageReader/Preview Content\"";
 				DEVELOPMENT_TEAM = A8K92XFF77;
 				ENABLE_HARDENED_RUNTIME = YES;
@@ -728,17 +626,6 @@
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/../Frameworks",
-				);
-				LIBRARY_SEARCH_PATHS = (
-					"$(inherited)",
-					/usr/local/Cellar/tesseract/4.1.1/lib,
-					/usr/local/Cellar/leptonica/1.79.0/lib,
-					/usr/local/Cellar/libtiff/4.1.0/lib,
-					/usr/local/Cellar/webp/1.1.0/lib,
-					/usr/local/Cellar/libpng/1.6.37/lib,
-					/usr/local/Cellar/jpeg/9d/lib,
-					/usr/local/Cellar/giflib/5.2.1/lib,
-					/usr/local/Cellar/openjpeg/2.3.1/lib,
 				);
 				MACOSX_DEPLOYMENT_TARGET = 10.15;
 				MARKETING_VERSION = 1.0.0;
@@ -812,12 +699,12 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 590D5A07307AB67501BF749F /* Pods-ImageReader.preview.xcconfig */;
 			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = ImageReader/ImageReader.entitlements;
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
+				CURRENT_PROJECT_VERSION = 2;
 				DEVELOPMENT_ASSET_PATHS = "\"ImageReader/Preview Content\"";
 				DEVELOPMENT_TEAM = A8K92XFF77;
 				ENABLE_HARDENED_RUNTIME = YES;
@@ -826,17 +713,6 @@
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/../Frameworks",
-				);
-				LIBRARY_SEARCH_PATHS = (
-					"$(inherited)",
-					/usr/local/Cellar/tesseract/4.1.1/lib,
-					/usr/local/Cellar/leptonica/1.79.0/lib,
-					/usr/local/Cellar/libtiff/4.1.0/lib,
-					/usr/local/Cellar/webp/1.1.0/lib,
-					/usr/local/Cellar/libpng/1.6.37/lib,
-					/usr/local/Cellar/jpeg/9d/lib,
-					/usr/local/Cellar/giflib/5.2.1/lib,
-					/usr/local/Cellar/openjpeg/2.3.1/lib,
 				);
 				MACOSX_DEPLOYMENT_TARGET = 10.15;
 				MARKETING_VERSION = 1.0.0;
@@ -961,14 +837,6 @@
 				minimumVersion = 0.1.0;
 			};
 		};
-		DB372ED124719C0C00E24890 /* XCRemoteSwiftPackageReference "SwiftTesseract" */ = {
-			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "https://github.com/MainasuK/SwiftTesseract.git";
-			requirement = {
-				kind = upToNextMajorVersion;
-				minimumVersion = 0.1.0;
-			};
-		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
@@ -976,10 +844,6 @@
 			isa = XCSwiftPackageProductDependency;
 			package = DB34AEAA246AF18500C9D3CF /* XCRemoteSwiftPackageReference "CommonOSLog" */;
 			productName = CommonOSLogDynamic;
-		};
-		DB372EE12471AB8900E24890 /* SwiftTesseract */ = {
-			isa = XCSwiftPackageProductDependency;
-			productName = SwiftTesseract;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};
